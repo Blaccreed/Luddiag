@@ -11,6 +11,18 @@ abstract Class User
     private string $adresse_user;
     private string $cd_postal_user;
 
+    public function __construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user)
+    {
+        $this->id_user = $id_user;
+        $this->nom_user = $nom_user;
+        $this->prenom_user = $prenom_user;
+        $this->mdp_user = $mdp_user;
+        $this->mail_user = $mail_user;
+        $this->phone_user = $phone_user;
+        $this->adresse_user = $adresse_user;
+        $this->cd_postal_user = $cd_postal_user;
+    }
+
     public function UpdateUser($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user)
     {
         $this->id_user = $id_user;
