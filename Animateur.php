@@ -6,7 +6,7 @@ Class Animateur extends User
 
     public function __construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user,$stand)
     {
-        parent::__construct();
+        parent::__construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user);
         $this->stand = $stand;
     }
 
