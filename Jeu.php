@@ -5,7 +5,7 @@ Class Jeu
     private int $id_jeu;
     private string $nom_jeu;
     private string $categorie_jeu;
-
+    private Note $SesNotes;
 
     public function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
     {
@@ -16,7 +16,7 @@ Class Jeu
 
     public function ToString()
     {
-        return "ID : " + $this->id_jeu + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu;
+        return "ID : " + $this->id_jeu + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Ses Notes : ";
     }
 
     public function SetIdJeu($id_jeu)
@@ -34,7 +34,13 @@ Class Jeu
         $this->categorie_jeu = $categorie_jeu;
     }
 
-
+    public function Jeu($id_jeu,$nom_jeu,$categorie_jeu)
+    {
+        $this->id_jeu = $id_jeu;
+        $this->nom_jeu = $nom_jeu;
+        $this->categorie_jeu = $categorie_jeu;
+        $this->SesNotes = array();
+    }
 
     public function GetIdjeu()
     {
@@ -51,7 +57,8 @@ Class Jeu
         return $this->categorie_jeu;
     }
 
-    
+    public function GetSesNotes()
+    {
+        return $this->SesNotes;
+    }
 }
-
-?>
