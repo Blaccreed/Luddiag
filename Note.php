@@ -22,7 +22,7 @@ Class Note
 
     public function ToString()
     {
-        return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu + " | Joueur : " + $this->unJoueur + " | Animateur : " + $this->unAnimateur;
+        return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();
     }
 
     public function SetIdJeu($id_jeu)
@@ -43,6 +43,11 @@ Class Note
     public function Note()
     {
         // A COMPLETER
+    }
+
+    public function GetNote()
+    {
+        return $this->note;
     }
 
     public function GetIdJeu()

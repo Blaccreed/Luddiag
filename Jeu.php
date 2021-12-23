@@ -16,7 +16,7 @@ Class Jeu
 
     public function ToString()
     {
-        return "ID : " + $this->id_jeu + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Ses Notes : ";
+        return "ID : " + $this->id_jeu + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Ses Notes : " + $this->SesNotes->GetNote();
     }
 
     public function SetIdJeu($id_jeu)
