@@ -2,16 +2,16 @@
 
 abstract Class User
 {
-    private int $id_user;
-    private string $nom_user;
-    private string $prenom_user;
-    private string $mdp_user;
-    private string $mail_user;
-    private string $phone_user;
-    private string $adresse_user;
-    private string $cd_postal_user;
+    private  $id_user;
+    private  $nom_user;
+    private  $prenom_user;
+    private  $mdp_user;
+    private  $mail_user;
+    private  $phone_user;
+    private  $adresse_user;
+    private  $cd_postal_user;
 
-    public function __construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user)
+    public function __construct($id_user = , $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user)
     {
         $this->id_user = $id_user;
         $this->nom_user = $nom_user;
@@ -38,7 +38,7 @@ abstract Class User
     public function ToString()
     {
         return "ID : " + $this->id_user + " | Nom : " + $this->nom_user + " | Prenom : " + $this->prenom_user + " | Mot de passe : " + $this->mdp_user + " | Mail : " + $this->mail_user + " | Phone : " + $this->phone_user + " | Adresse : " + $this->adresse_user + " | Code postal : " + $this->cd_postal_user;
-    }   
+    }
 
     public function SetIdUser($id_user)
     {
@@ -81,13 +81,13 @@ abstract Class User
     }
 
     public function GetIdUser()
-    { 
-        return $this->id_user; 
+    {
+        return $this->id_user;
     }
 
     public function GetNomUser()
-    { 
-        return $this->nom_user ; 
+    {
+        return $this->nom_user ;
     }
 
     public function GetPrenomUser()
@@ -96,28 +96,28 @@ abstract Class User
     }
 
     public function GetMdpUser()
-    { 
-        return $this->mdp_user; 
+    {
+        return $this->mdp_user;
     }
 
     public function GetMailUser()
-    { 
-        return $this->mail_user; 
+    {
+        return $this->mail_user;
     }
 
     public function GetPhoneUser()
-    { 
-        return $this->phone_user; 
+    {
+        return $this->phone_user;
     }
 
     public function GetAdresseUser()
-    { 
-        return $this->adresse_user; 
+    {
+        return $this->adresse_user;
     }
 
     public function GetCdPostUser()
-    { 
-        return $this->cd_postal_user; 
+    {
+        return $this->cd_postal_user;
     }
 }
 
