@@ -15,7 +15,7 @@ Class Organisateur extends User
 
     public function GetFonction()
     {
-       return $this->fonction;
+      return $this->fonction;
     }
 
     public function SetFonction($fonction)

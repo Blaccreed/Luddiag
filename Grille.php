@@ -8,17 +8,20 @@ class Grille
     private DateTime $date_deb_grille;
     private DateTime $date_fin_grille;
     private Joueur $proprietaire;
-    private $lesJeux = array();
+    private array $lesJeux;
 
-    public function __construct(int $id_grille,bool $rempli,string $type_grille,DateTime $date_deb_grille,DateTime $date_fin_grille,Joueur $proprietaire,array $lesJeux)
+    public function __construct($id_grille = null , $rempli = null, $type_grille = null, $date_deb_grille = null, $date_fin_grille = null, $proprietaire = null, $lesJeux = null)
     {
-        $this->id_grille = $id_grille;
-        $this->rempli = $rempli;
-        $this->type_grille = $type_grille;
-        $this->date_deb_grille = $date_deb_grille;
-        $this->date_fin_grille = $date_fin_grille;
-        $this->proprietaire = $proprietaire;
-        array_push($this->lesJeux, $lesJeux);
+        if(!is_null($id_grille))
+        {
+            $this->id_grille = $id_grille;
+            $this->rempli = $rempli;
+            $this->type_grille = $type_grille;
+            $this->date_deb_grille = $date_deb_grille;
+            $this->date_fin_grille = $date_fin_grille;
+            $this->proprietaire = $proprietaire;
+            $this->lesJeux = array();
+        }
     }
 
     public function __toString(): string
