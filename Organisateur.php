@@ -13,10 +13,17 @@ Class Organisateur extends User
     }
   }
 
+<<<<<<< HEAD
   public function GetFonction()
   {
     return $this->fonction;
   }
+=======
+    public function GetFonction()
+    {
+      return $this->fonction;
+    }
+>>>>>>> 392fa375fdf088881ae553a5e4ced6e63fff075d
 
   public function SetFonction($fonction)
   {

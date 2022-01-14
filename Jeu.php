@@ -5,8 +5,19 @@ Class Jeu
     private int $id_jeu;
     private string $nom_jeu;
     private string $categorie_jeu;
-    private Note $SesNotes;
-
+    private array $SesNotes;
+    
+    public function __construct($id_jeu = null,$nom_jeu = null ,$categorie_jeu = null)
+    {
+        if(!is_null($id_jeu))
+        {
+            $this->id_jeu = $id_jeu;
+            $this->nom_jeu = $nom_jeu;
+            $this->categorie_jeu = $categorie_jeu;
+            $this->SesNotes = array();
+        }
+    }
+    
     public function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
     {
         $this->id_jeu = $id_jeu;
@@ -34,12 +45,8 @@ Class Jeu
         $this->categorie_jeu = $categorie_jeu;
     }
 
-    public function Jeu($id_jeu,$nom_jeu,$categorie_jeu)
-    {
-        $this->id_jeu = $id_jeu;
-        $this->nom_jeu = $nom_jeu;
-        $this->categorie_jeu = $categorie_jeu;
-        $this->SesNotes = array();
+    public function addNote($note){
+        array_push($this->SesNotes, $note);
     }
 
     public function GetIdjeu()

@@ -1,85 +1,64 @@
+
 <?php
 
 Class Note
 {
+    private int $id_note;
     private float $note;
-    private string $nom_jeu;
-    private string $categorie_jeu;
     private Jeu $unJeu;
     private Joueur $unJoueur;
     private Animateur $unAnimateur;
+    private Bool $valider;
 
+    public function __construct($id_note = null,$note = null, $unJeu = null, $unJoueur = null , $unAnimateur = null, $valider = null)
+    {
+        if(!is_null($id_note))
+        {
+            $this->id_note = $id_note;
+            $this->note = $snote;
+            $this->unJeu = $unJeu;
+            $this->unJoueur = $unJoueur;
+            $this->unAnimateur = $unAnimateur;
+            $this->valider = $valider;
+        }
+    }
 
-    public function UpdateNote($note, $nom_jeu, $categorie_jeu, $unJeu, $unJoueur, $unAnimateur)
+    public function UpdateNote($id_note ,$note, $unJeu, $unJoueur, $unAnimateur, $valider)
     {
         $this->note = $note;
-        $this->nom_jeu = $nom_jeu;
-        $this->categorie_jeu = $categorie_jeu;
         $this->unJeu = $unJeu;
         $this->unJoueur = $unJoueur;
         $this->unAnimateur = $unAnimateur;
-    }
+        $this->valider = $valider;
 
-    public function ToString()
-    {
-        return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();
+        //SQL UPDATE
     }
-
-    public function SetIdJeu($id_jeu)
-    {
-        $this->id_jeu = $id_jeu;
-    }
-
-    public function SetNomJeu($nom_jeu)
-    {
-        $this->nom_jeu = $nom_jeu;
-    }
-
-    public function SetCategorieJeu($categorie_jeu)
-    {
-        $this->categorie_jeu = $categorie_jeu;
-    }
-
-    public function Note()
-    {
-        // A COMPLETER
-    }
-
+    
     public function GetNote()
     {
         return $this->note;
-    }
-
-    public function GetIdJeu()
-    {
-        return $this->id_jeu;
-    }
-
-    public function GetNomJeu()
-    {
-        return $this->nom_jeu;
-    }
-
-    public function GetCategorieJeu()
-    {
-        return $this->categorie_jeu;
+        
     }
 
     public function GetJeu()
     {
         return $this->unJeu;
     }
-
+    
     public function GetJoueur()
     {
         return $this->unJoueur;
     }
-
+    
     public function GetAnimateur()
     {
         return $this->unAnimateur;
     }
-
+    
+    public function ToString()
+    {
+        return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();
+    }
 
 }
 
