@@ -15,7 +15,7 @@ Class Joueur extends User
         $this->lesGrillesduJoueur = array();
       }
   }
-
+  //Createjoueur
    public function GetNbPoints()
    {
      return $this->nombre_points;

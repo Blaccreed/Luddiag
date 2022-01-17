@@ -23,7 +23,7 @@ Class Animateur extends User
 
     public function ValiderNote()
     {
-
+               //SQL a faire
     }
 }
 
