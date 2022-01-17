@@ -2,11 +2,11 @@
 
 Class Jeu
 {
-    private int $id_jeu;
-    private string $nom_jeu;
-    private string $categorie_jeu;
-    private array $SesNotes;
-    
+    private  $id_jeu;
+    private $nom_jeu;
+    private  $categorie_jeu;
+    private  $SesNotes;
+
     public function __construct($id_jeu = null,$nom_jeu = null ,$categorie_jeu = null)
     {
         if(!is_null($id_jeu))
@@ -17,12 +17,22 @@ Class Jeu
             $this->SesNotes = array();
         }
     }
-    
-    public function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
+
+    static public function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
     {
-        $this->id_jeu = $id_jeu;
-        $this->nom_jeu = $nom_jeu;
-        $this->categorie_jeu = $categorie_jeu;
+      $requetePreparee = "UPDATE jeu SET nom_jeu = :tag_nom_jeu, categorie_jeu = :tag_categorie_jeu WHERE id_jeu = :tag_id_jeu;";
+
+      $req_prep = Connexion::pdo()->prepare($requetePreparee);
+
+      $arrayName = array("tag_id_jeu" => $id_jeu,
+      "tag_nom_jeu" => $nom_jeu,
+      "tag_categorie_jeu" => $categorie_jeu);
+
+      try {
+        $req_prep->execute($arrayName);
+      } catch (PDOException $e) {
+        echo "erreur: ".$e ->getMessage()."</br>";
+      }
     }
 
     public function ToString()

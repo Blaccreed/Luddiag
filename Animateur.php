@@ -22,6 +22,9 @@ Class Animateur extends User
     }
 
     public function ValiderNote()
+    {
+
+    }
 }
 
 ?>

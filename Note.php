@@ -3,12 +3,12 @@
 
 Class Note
 {
-    private int $id_note;
-    private float $note;
-    private Jeu $unJeu;
-    private Joueur $unJoueur;
-    private Animateur $unAnimateur;
-    private Bool $valider;
+    private  $id_note;
+    private  $note;
+    private  $unJeu;
+    private  $unJoueur;
+    private  $unAnimateur;
+    private  $valider;
 
     public function __construct($id_note = null,$note = null, $unJeu = null, $unJoueur = null , $unAnimateur = null, $valider = null)
     {
@@ -33,28 +33,28 @@ Class Note
 
         //SQL UPDATE
     }
-    
+
     public function GetNote()
     {
         return $this->note;
-        
+
     }
 
     public function GetJeu()
     {
         return $this->unJeu;
     }
-    
+
     public function GetJoueur()
     {
         return $this->unJoueur;
     }
-    
+
     public function GetAnimateur()
     {
         return $this->unAnimateur;
     }
-    
+
     public function ToString()
     {
         return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();

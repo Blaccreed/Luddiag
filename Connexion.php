@@ -5,7 +5,7 @@ class Connexion {
   	static private $hostname = 'localhost';
   	static private $database = 'luddiag';
   	static private $login = 'root';
-  	static private $password = '';
+  	static private $password = 'root';
 
   	// attribut de la classe Connexion paramètres d'encodage
   	static private $tabUTF8 = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
