@@ -35,9 +35,19 @@ Class Jeu
       }
     }
 
+    static public function GetTousLesjeux()
+    {
+      $requetePreparee = "SELECT * FROM jeu";
+      $reponse = Connexion::pdo()->query($requetePreparee);
+      $reponse -> setFetchMode(PDO::FETCH_CLASS, 'Jeu');
+		  $tab = $reponse ->fetchAll();
+
+      return $tab;
+     }
+
     public function ToString()
     {
-        return "ID : " + $this->id_jeu + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Ses Notes : " + $this->SesNotes->GetNote();
+        echo "<p>$this->id_jeu,  $this->nom_jeu,$this->categorie_jeu </p>";
     }
 
     public function SetIdJeu($id_jeu)
