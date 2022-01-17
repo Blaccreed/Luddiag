@@ -1,4 +1,5 @@
 <?php
+require_once "User.php";
 
 Class Animateur extends User
 {
