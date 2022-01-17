@@ -8,18 +8,18 @@ Class Joueur extends User
 
   public function __construct($id_user = NULL, $nom_user = NULL, $prenom_user = NULL, $mdp_user = NULL, $phone_user=NULL, $adresse_user= NULL , $cd_postale_user=NULL, $nombre_points= NULL)
   {
-    if(!is_null($id_user))
-    {
-      parent ::_construct($id_user, $nom_user, $prenom_user, $mdp_user, $phone_user, $adresse_user, $cd_postale_user);
-      $this->nombre_points = $nombre_points;
-      $this->lesGrillesduJoueur = array();
-    }
+      if(!is_null($id_user))
+      {
+        parent ::_construct($id_user, $nom_user, $prenom_user, $mdp_user, $phone_user, $adresse_user, $cd_postale_user);
+        $this->nombre_points = $nombre_points;
+        $this->lesGrillesduJoueur = array();
+      }
   }
 
-  public function GetNbPoints()
-  {
-    return $this->nombre_points;
-  }
+   public function GetNbPoints()
+   {
+     return $this->nombre_points;
+   }
 
   public function  GetLesGrillesJoueur()
   {
@@ -49,7 +49,7 @@ Class Joueur extends User
   {
     array_push($this->LesGrillesduJoueur, $grile);
   }
-  
+
 }
 
 

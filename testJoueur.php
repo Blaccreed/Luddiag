@@ -7,8 +7,6 @@ Connexion::connect();
 
 
 
-Joueur::
-
 
 
 
