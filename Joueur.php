@@ -36,11 +36,11 @@ class Joueur extends User
             die("Erreur lors de la récupération des grilles");
         }
     }
-
-    public function NotationJeux($idJeux, $note)
+//id_user_1 est la clé primaire d'un animateur pour éviter la confusion
+    public function NotationJeu($id_user, $id_jeu, $id_user_1, $note)
     {
         try{
-            $sql = "";
+            $sql = "INSERT INTO noter VALUES(:tag_id_user, :tag_id_jeu, :tag_id_user_1, :tag_note, 0, NOW());";
         }
         catch(PDOException $e)
         {
@@ -53,6 +53,7 @@ class Joueur extends User
     {
 
     }
+
 
     public function AjouterGrille($grille)
     {

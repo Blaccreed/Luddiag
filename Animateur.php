@@ -1,5 +1,6 @@
 <?php
 require_once "User.php";
+require_once "Note.php";
 
 class Animateur extends User
 {
@@ -14,6 +15,8 @@ class Animateur extends User
         $this->stand = $stand;
     }
 
+
+
     public function SetStand($stand)
     {
         $this->stand = $stand;
@@ -24,8 +27,18 @@ class Animateur extends User
         return $this->stand;
     }
 
-    public function ValiderNote()
+    static public function ValiderNote($id_user)
     {
-        //SQL a faire
+      $requetePreparee = "UPDATE note SET validee = True WHERE id_user_1 = :tag_user";
+
+      $req_prep = Connexion::pdo()->prepare($requetePreparee);
+
+      $arrayName = array("tag_jeu" => $id_user);
+
+      try {
+          $req_prep->execute($arrayName);
+      } catch (PDOException $e) {
+          echo "erreur: " . $e->getMessage() . "</br>";
+      }
     }
 }

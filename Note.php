@@ -25,11 +25,7 @@ Class Note
 
     public function UpdateNote($id_note ,$note, $unJeu, $unJoueur, $unAnimateur, $valider)
     {
-        $this->note = $note;
-        $this->unJeu = $unJeu;
-        $this->unJoueur = $unJoueur;
-        $this->unAnimateur = $unAnimateur;
-        $this->valider = $valider;
+      
 
         //SQL UPDATE
     }

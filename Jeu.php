@@ -40,7 +40,7 @@ class Jeu
         $reponse = Connexion::pdo()->query($requetePreparee);
         $reponse->setFetchMode(PDO::FETCH_CLASS, 'Jeu');
         $tab = $reponse->fetchAll();
-
+       
         return $tab;
     }
 
