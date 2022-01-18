@@ -35,7 +35,7 @@ CREATE TABLE Exposant(
 );
 CREATE TABLE grille(
   id_grille INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  rempli VARCHAR(10),
+  rempli BOOLEAN,
   type_grille VARCHAR(50),
   date_deb_grille DATETIME,
   date_fin_grille DATETIME,

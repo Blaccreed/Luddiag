@@ -1,57 +1,62 @@
 <?php
 require_once "User.php";
+require_once "Grille.php";
 
-Class Joueur extends User
+class Joueur extends User
 {
 
-  private int $nombre_points;
-  private array $lesGrillesduJoueur;
+    private $nombre_points;
+    private $lesGrillesduJoueur;
 
-  public function __construct($id_user = NULL, $nom_user = NULL, $prenom_user = NULL, $mdp_user = NULL, $phone_user=NULL, $adresse_user= NULL , $cd_postale_user=NULL, $nombre_points= NULL)
-  {
-      if(!is_null($id_user))
-      {
-        parent ::_construct($id_user, $nom_user, $prenom_user, $mdp_user, $phone_user, $adresse_user, $cd_postale_user);
-        $this->nombre_points = $nombre_points;
-        $this->lesGrillesduJoueur = array();
-      }
-  }
-  //Createjoueur
-   public function GetNbPoints()
-   {
-     return $this->nombre_points;
-   }
-
-  public function  GetLesGrillesJoueur()
-  {
-    return $this->lesGrillesduJoueur;
-  }
-
-  public static function AjouterPoint($id_user)
-  {
-    foreach($LesGrillesduJoueur as $grille)
+    public function __construct($id_user = null, $nom_user = null, $prenom_user = null, $mdp_user = null, $phone_user = null, $adresse_user = null, $cd_postale_user = null, $nombre_points = null)
     {
-      if($grille->estRempli())
-      {
-        try {
-          $requete_preparee = "UPDATE joueur SET nombre_points = nombre_points + 10 WHERE id_user = :tag_id_user;";
-          $req_prep = Connexion::pdo()->prepare($requetePreparee);
-          $arrayName = array("tag_id_user" => $id_user);
-          $req_prep->execute($arrayName);
-        } catch (PDOException $e) {
-          echo "erreur: ".$e ->getMessage()."</br>";
-          die("Une erreur est survenu");
+        if (!is_null($id_user)) {
+            parent::__construct($id_user, $nom_user, $prenom_user, $mdp_user, $phone_user, $adresse_user, $cd_postale_user);
+            $this->nombre_points = $nombre_points;
+            $this->lesGrillesduJoueur = array();
         }
-      }
     }
-  }
+    //Createjoueur
+    public function GetNbPoints()
+    {
+        return $this->nombre_points;
+    }
 
-  public function AjouterGrille($grille)
-  {
-    array_push($this->LesGrillesduJoueur, $grile);
-  }
+    public static function GetLesGrillesJoueur($idJoueur)
+    {
+        try {
+            $sql = "SELECT * FROM grille WHERE id_user = :idUser";
+            $req_prep = Connexion::pdo()->prepare($sql);
+            $req_prep->execute(["idUser" => $idJoueur]);
+            $req_prep -> setFetchMode(PDO::FETCH_CLASS, 'Grille');
+            $tab_results = $req_prep->fetchAll();
+            return $tab_results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            die("Erreur lors de la récupération des grilles");
+        }
+    }
+
+    public function NotationJeux($idJeux, $note)
+    {
+        try{
+            $sql = "";
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+            die('Erreur lors de la notation du jeux');
+        }
+    }
+
+    public static function AjouterPoint($id_user)
+    {
+
+    }
+
+    public function AjouterGrille($grille)
+    {
+
+    }
 
 }
-
-
-?>

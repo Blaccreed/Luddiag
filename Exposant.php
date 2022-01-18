@@ -1,11 +1,11 @@
 <?php
 require_once "User.php";
 
-Class Exposant extends User
+class Exposant extends User
 {
-    private string $type_exposant;
+    private $type_exposant;
 
-    public function __construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user,$type_exposant)
+    public function __construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user, $type_exposant)
     {
         parent::__construct($id_user, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user);
         $this->type_exposant = $type_exposant;
@@ -21,5 +21,3 @@ Class Exposant extends User
         return $this->type_exposant;
     }
 }
-
-?>

@@ -1,20 +1,19 @@
 <?php
 
- Class User
+class User
 {
-    protected  $id_user;
+    protected $id_user;
     protected $nom_user;
-    protected  $prenom_user;
+    protected $prenom_user;
     protected $mdp_user;
     protected $mail_user;
     protected $phone_user;
     protected $adresse_user;
     protected $cd_postal_user;
 
-    public function __construct($id_user = null , $nom_user = null , $prenom_user = null, $mdp_user = null, $mail_user = null, $phone_user = null, $adresse_user = null, $cd_postal_user = null)
+    public function __construct($id_user = null, $nom_user = null, $prenom_user = null, $mdp_user = null, $mail_user = null, $phone_user = null, $adresse_user = null, $cd_postal_user = null)
     {
-        if(!is_null($id_user))
-        {
+        if (!is_null($id_user)) {
             $this->id_user = $id_user;
             $this->nom_user = $nom_user;
             $this->prenom_user = $prenom_user;
@@ -39,90 +38,88 @@
         $this->cd_postal_user = $cd_postal_user;
     }
 
-     public function ToString()
+    public function ToString()
     {
-        return "ID : " + $this->id_user + " | Nom : " + $this->nom_user + " | Prenom : " + $this->prenom_user + " | Mot de passe : " + $this->mdp_user + " | Mail : " + $this->mail_user + " | Phone : " + $this->phone_user + " | Adresse : " + $this->adresse_user + " | Code postal : " + $this->cd_postal_user;
+        return "ID : "+$this->id_user+" | Nom : "+$this->nom_user+" | Prenom : "+$this->prenom_user+" | Mot de passe : "+$this->mdp_user+" | Mail : "+$this->mail_user+" | Phone : "+$this->phone_user+" | Adresse : "+$this->adresse_user+" | Code postal : "+$this->cd_postal_user;
     }
 
-     public function SetIdUser($id_user)
+    public function SetIdUser($id_user)
     {
         $this->id_user = $id_user;
     }
 
-     public function SetNomUser($nom_user)
+    public function SetNomUser($nom_user)
     {
         $this->nom_user = $nom_user;
     }
 
-     public function SetPrenomUser($prenom_user)
+    public function SetPrenomUser($prenom_user)
     {
         $this->prenom_user = $prenom_user;
     }
 
-     public function SetMdpUser($mdp_user)
+    public function SetMdpUser($mdp_user)
     {
         $this->mdp_user = $mdp_user;
     }
 
-     public function SetMailsUser($mail_user)
+    public function SetMailsUser($mail_user)
     {
         $this->mail_user = $mail_user;
     }
 
-     public function SetPhoneUser($phone_user)
+    public function SetPhoneUser($phone_user)
     {
         $this->phone_user = $phone_user;
     }
 
-     public function SetAdresseUser($adresse_user)
+    public function SetAdresseUser($adresse_user)
     {
         $this->adresse_user = $adresse_user;
     }
 
-     public function SetCdPostalUser($cd_postal_user)
+    public function SetCdPostalUser($cd_postal_user)
     {
         $this->cd_postal_user = $cd_postal_user;
     }
 
-     public function GetIdUser()
+    public function GetIdUser()
     {
         return $this->id_user;
     }
 
-     public function GetNomUser()
+    public function GetNomUser()
     {
-        return $this->nom_user ;
+        return $this->nom_user;
     }
 
-     public function GetPrenomUser()
+    public function GetPrenomUser()
     {
         return $this->prenom_user;
     }
 
-     public function GetMdpUser()
+    public function GetMdpUser()
     {
         return $this->mdp_user;
     }
 
-     public function GetMailUser()
+    public function GetMailUser()
     {
         return $this->mail_user;
     }
 
-     public function GetPhoneUser()
+    public function GetPhoneUser()
     {
         return $this->phone_user;
     }
 
-     public function GetAdresseUser()
+    public function GetAdresseUser()
     {
         return $this->adresse_user;
     }
 
-     public function GetCdPostUser()
+    public function GetCdPostUser()
     {
         return $this->cd_postal_user;
     }
 }
-
-?>

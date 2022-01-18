@@ -3,19 +3,19 @@
 
 Class Note
 {
-    private  $id_note;
-    private  $note;
-    private  $unJeu;
-    private  $unJoueur;
-    private  $unAnimateur;
-    private  $valider;
+    private $id_note;
+    private $note;
+    private $unJeu;
+    private $unJoueur;
+    private $unAnimateur;
+    private $valider;
 
     public function __construct($id_note = null,$note = null, $unJeu = null, $unJoueur = null , $unAnimateur = null, $valider = null)
     {
         if(!is_null($id_note))
         {
             $this->id_note = $id_note;
-            $this->note = $snote;
+            $this->note = $note;
             $this->unJeu = $unJeu;
             $this->unJoueur = $unJoueur;
             $this->unAnimateur = $unAnimateur;
@@ -57,7 +57,7 @@ Class Note
 
     public function ToString()
     {
-        return "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();
+        echo "Note : " + $this->note + " | Nom : " + $this->nom_jeu + " | Catégorie : " + $this->categorie_jeu + " | Jeu : " + $this->unJeu->GetNomJeu() + " | Joueur : " + $this->unJoueur->GetNomUser() + " | Animateur : " + $this->unAnimateur->GetNomUser();
     }
 
 }

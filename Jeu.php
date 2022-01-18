@@ -1,16 +1,15 @@
 <?php
 
-Class Jeu
+class Jeu
 {
-    private  $id_jeu;
+    private $id_jeu;
     private $nom_jeu;
-    private  $categorie_jeu;
-    private  $SesNotes;
+    private $categorie_jeu;
+    private $SesNotes;
 
-    public function __construct($id_jeu = null,$nom_jeu = null ,$categorie_jeu = null)
+    public function __construct($id_jeu = null, $nom_jeu = null, $categorie_jeu = null)
     {
-        if(!is_null($id_jeu))
-        {
+        if (!is_null($id_jeu)) {
             $this->id_jeu = $id_jeu;
             $this->nom_jeu = $nom_jeu;
             $this->categorie_jeu = $categorie_jeu;
@@ -18,32 +17,32 @@ Class Jeu
         }
     }
 
-    static public function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
+    public static function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu)
     {
-      $requetePreparee = "UPDATE jeu SET nom_jeu = :tag_nom_jeu, categorie_jeu = :tag_categorie_jeu WHERE id_jeu = :tag_id_jeu;";
+        $requetePreparee = "UPDATE jeu SET nom_jeu = :tag_nom_jeu, categorie_jeu = :tag_categorie_jeu WHERE id_jeu = :tag_id_jeu;";
 
-      $req_prep = Connexion::pdo()->prepare($requetePreparee);
+        $req_prep = Connexion::pdo()->prepare($requetePreparee);
 
-      $arrayName = array("tag_id_jeu" => $id_jeu,
-      "tag_nom_jeu" => $nom_jeu,
-      "tag_categorie_jeu" => $categorie_jeu);
+        $arrayName = array("tag_id_jeu" => $id_jeu,
+            "tag_nom_jeu" => $nom_jeu,
+            "tag_categorie_jeu" => $categorie_jeu);
 
-      try {
-        $req_prep->execute($arrayName);
-      } catch (PDOException $e) {
-        echo "erreur: ".$e ->getMessage()."</br>";
-      }
+        try {
+            $req_prep->execute($arrayName);
+        } catch (PDOException $e) {
+            echo "erreur: " . $e->getMessage() . "</br>";
+        }
     }
 
-    static public function GetTousLesjeux()
+    public static function GetTousLesjeux()
     {
-      $requetePreparee = "SELECT * FROM jeu";
-      $reponse = Connexion::pdo()->query($requetePreparee);
-      $reponse -> setFetchMode(PDO::FETCH_CLASS, 'Jeu');
-		  $tab = $reponse ->fetchAll();
+        $requetePreparee = "SELECT * FROM jeu";
+        $reponse = Connexion::pdo()->query($requetePreparee);
+        $reponse->setFetchMode(PDO::FETCH_CLASS, 'Jeu');
+        $tab = $reponse->fetchAll();
 
-      return $tab;
-     }
+        return $tab;
+    }
 
     public function ToString()
     {
@@ -65,7 +64,8 @@ Class Jeu
         $this->categorie_jeu = $categorie_jeu;
     }
 
-    public function addNote($note){
+    public function addNote($note)
+    {
         array_push($this->SesNotes, $note);
     }
 
@@ -76,7 +76,7 @@ Class Jeu
 
     public function GetNomJeu()
     {
-        return $this->nom_jeu ;
+        return $this->nom_jeu;
     }
 
     public function GetCategorieJeu()
