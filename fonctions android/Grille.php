@@ -1,5 +1,5 @@
 <?php
-
+//ANDROIIIIIIIIIIIIIIIIIIIIIIIIIIID
 class Grille
 {
     private  $id_grille;
@@ -23,7 +23,7 @@ class Grille
             $this->lesJeux = array();
         }
     }
-
+    
     public function __toString(): string
     {
         return $this->id_grille ." - Rempli? ". $this->rempli ." - Type grille? ". $this->type_grille ." - Date de debut de la grille ". $this->date_deb_grille ." - Date de fin de la grille ? ". $this->date_fin_grille ." - Prénom du proprietaire? ". (string) $prenom_proprietaire ." - Les jeux ". $lesJeuxString();
@@ -41,6 +41,8 @@ class Grille
         $this->proprietaire = $proprietaire;
         $this->lesJeux = $lesJeux;
     }
+
+    
 
     public function estRempli(): bool
     {

@@ -1,10 +1,10 @@
 <?php
 require_once "User.php";
 require_once "Grille.php";
-
+//ANDROIIIIIIIIIIIIIIIIIIIIIIIIIIID
 class Joueur extends User
 {
-
+    
     private $nombre_points;
     private $lesGrillesduJoueur;
 
@@ -16,6 +16,7 @@ class Joueur extends User
             $this->lesGrillesduJoueur = array();
         }
     }
+
     //Createjoueur
     public function GetNbPoints()
     {
@@ -56,15 +57,5 @@ class Joueur extends User
         }
     }
 
-    public static function AjouterPoint($id_user)
-    {
-
-    }
-
-
-    public function AjouterGrille($grille)
-    {
-
-    }
 
 }

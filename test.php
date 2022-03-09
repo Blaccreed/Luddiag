@@ -2,8 +2,7 @@
 require_once "Organisateur.php";
 require_once "Jeu.php";
 require_once "Connexion.php";
-require_once "Joueur.php";
-require_once "Animateur.php";
+
 
 ini_set('display_errors', 1);
 
@@ -29,8 +28,12 @@ Connexion::connect();
 // 	print_r($tab_jeux);
 // echo "</pre>";
 
-echo "-----------Notation--------------------";
+//echo "-----------Notation--------------------";
 
-Joueur::NotationJeu(2, 1, 1, 10);
+//Joueur::NotationJeu(2, 1, 1, 10);
+
+//echo "---------------------User--------------------"
+User::SeConnecter("dylan.hacquart@flip.fr", "dylan");
 
 ?>
+

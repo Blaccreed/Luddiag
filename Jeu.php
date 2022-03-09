@@ -64,11 +64,6 @@ class Jeu
         $this->categorie_jeu = $categorie_jeu;
     }
 
-    public function addNote($note)
-    {
-        array_push($this->SesNotes, $note);
-    }
-
     public function GetIdjeu()
     {
         return $this->id_jeu;

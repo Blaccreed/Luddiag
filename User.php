@@ -43,46 +43,6 @@ class User
         return "ID : "+$this->id_user+" | Nom : "+$this->nom_user+" | Prenom : "+$this->prenom_user+" | Mot de passe : "+$this->mdp_user+" | Mail : "+$this->mail_user+" | Phone : "+$this->phone_user+" | Adresse : "+$this->adresse_user+" | Code postal : "+$this->cd_postal_user;
     }
 
-    public function SetIdUser($id_user)
-    {
-        $this->id_user = $id_user;
-    }
-
-    public function SetNomUser($nom_user)
-    {
-        $this->nom_user = $nom_user;
-    }
-
-    public function SetPrenomUser($prenom_user)
-    {
-        $this->prenom_user = $prenom_user;
-    }
-
-    public function SetMdpUser($mdp_user)
-    {
-        $this->mdp_user = $mdp_user;
-    }
-
-    public function SetMailsUser($mail_user)
-    {
-        $this->mail_user = $mail_user;
-    }
-
-    public function SetPhoneUser($phone_user)
-    {
-        $this->phone_user = $phone_user;
-    }
-
-    public function SetAdresseUser($adresse_user)
-    {
-        $this->adresse_user = $adresse_user;
-    }
-
-    public function SetCdPostalUser($cd_postal_user)
-    {
-        $this->cd_postal_user = $cd_postal_user;
-    }
-
     public function GetIdUser()
     {
         return $this->id_user;
@@ -122,4 +82,30 @@ class User
     {
         return $this->cd_postal_user;
     }
+
+    static public function SeConnecter($mail_user, $mdp_user)
+    {
+        $requetePreparee = "SELECT * FROM user_flip WHERE mail_user = :tag_mail_user AND mdp_user = :tag_mdp_user";
+
+        $req_prep = Connexion::pdo()->prepare($requetePreparee);
+
+        $arrayName = array("tag_mail_user" => $mail_user,
+        "tag_mdp_user" => $mdp_user);
+        
+        try {
+            $req_prep->execute($arrayName);
+            $count = $req_prep->rowCount();
+          if($count == 1)
+          {
+              echo "connecté";
+          }
+          else{
+              echo "e-mail ou mot de passe incorrect";
+          }
+        } catch (PDOException $e) {
+           echo "erreur: " . $e->getMessage() . "</br>";
+        }
+    }
+
 }
+

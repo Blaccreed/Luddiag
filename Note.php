@@ -23,13 +23,6 @@ Class Note
         }
     }
 
-    public function UpdateNote($id_note ,$note, $unJeu, $unJoueur, $unAnimateur, $valider)
-    {
-      
-
-        //SQL UPDATE
-    }
-
     public function GetNote()
     {
         return $this->note;
@@ -50,6 +43,8 @@ Class Note
     {
         return $this->unAnimateur;
     }
+
+    
 
     public function ToString()
     {
