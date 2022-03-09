@@ -37,10 +37,17 @@ class Joueur extends User
         }
     }
 //id_user_1 est la clé primaire d'un animateur pour éviter la confusion
-    public function NotationJeu($id_user, $id_jeu, $id_user_1, $note)
+    static public function NotationJeu($id_user, $id_jeu, $id_user_1, $note)
     {
+      $sql = "INSERT INTO noter VALUES(:tag_id_user, :tag_id_jeu, :tag_id_user_1, :tag_note, 0, NOW());";
+      $req_prep = Connexion::pdo()->prepare($sql);
+
+      $arrayName = array("tag_id_user" => $id_user,
+          "tag_id_jeu" => $id_jeu,
+          "tag_id_user_1" => $id_user_1,
+          "tag_note" => $note);
         try{
-            $sql = "INSERT INTO noter VALUES(:tag_id_user, :tag_id_jeu, :tag_id_user_1, :tag_note, 0, NOW());";
+           $req_prep->execute($arrayName);
         }
         catch(PDOException $e)
         {

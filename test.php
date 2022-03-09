@@ -3,6 +3,7 @@ require_once "Organisateur.php";
 require_once "Jeu.php";
 require_once "Connexion.php";
 require_once "Joueur.php";
+require_once "Animateur.php";
 
 ini_set('display_errors', 1);
 
@@ -13,19 +14,23 @@ Connexion::connect();
 
 
 
-echo "------------Grille-----------------";
-$tab_Grille = Joueur::GetLesGrillesJoueur(1);
+// echo "------------Grille-----------------";
+// $tab_Grille = Joueur::GetLesGrillesJoueur(1);
+//
+// echo "<pre>";
+// 	print_r($tab_Grille);
+// echo "</pre>";
+//
+// echo "------------Joueur-----------------";
+//
+// $tab_jeux = Jeu::GetTousLesjeux();
+//
+// echo "<pre>";
+// 	print_r($tab_jeux);
+// echo "</pre>";
 
-echo "<pre>";
-	print_r($tab_Grille);
-echo "</pre>";
+echo "-----------Notation--------------------";
 
-echo "------------Joueur-----------------";
-
-$tab_jeux = Jeu::GetTousLesjeux();
-
-echo "<pre>";
-	print_r($tab_jeux);
-echo "</pre>";
+Joueur::NotationJeu(2, 1, 1, 10);
 
 ?>

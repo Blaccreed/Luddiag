@@ -14,7 +14,7 @@ class Animateur extends User
 
         $this->stand = $stand;
     }
-
+    
 
 
     public function SetStand($stand)

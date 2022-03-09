@@ -2,13 +2,13 @@
 
 class Grille
 {
-    private int $id_grille;
-    private bool $rempli;
-    private string $type_grille;
-    private DateTime $date_deb_grille;
-    private DateTime $date_fin_grille;
-    private Joueur $proprietaire;
-    private array $lesJeux;
+    private  $id_grille;
+    private  $rempli;
+    private  $type_grille;
+    private  $date_deb_grille;
+    private  $date_fin_grille;
+    private  $proprietaire;
+    private  $lesJeux;
 
     public function __construct($id_grille = null , $rempli = null, $type_grille = null, $date_deb_grille = null, $date_fin_grille = null, $proprietaire = null, $lesJeux = null)
     {
@@ -29,7 +29,7 @@ class Grille
         return $this->id_grille ." - Rempli? ". $this->rempli ." - Type grille? ". $this->type_grille ." - Date de debut de la grille ". $this->date_deb_grille ." - Date de fin de la grille ? ". $this->date_fin_grille ." - Prénom du proprietaire? ". (string) $prenom_proprietaire ." - Les jeux ". $lesJeuxString();
     }
 
-  
+
 
     public function UpdateGrille(int $id_grille,bool $rempli,string $type_grille,DateTime $date_deb_grille,DateTime $date_fin_grille,Joueur $proprietaire,array $lesJeux): void
     {
