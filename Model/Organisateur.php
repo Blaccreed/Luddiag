@@ -1,5 +1,6 @@
 <?php
 require_once "User.php";
+//session_start();
 
 class Organisateur extends User
 {

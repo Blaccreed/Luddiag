@@ -1,5 +1,6 @@
 <?php
 
+
 class User
 {
     protected $id_user;
@@ -91,7 +92,7 @@ class User
 
         $arrayName = array("tag_mail_user" => $mail_user,
         "tag_mdp_user" => $mdp_user);
-        
+
         try {
             $req_prep->execute($arrayName);
             $count = $req_prep->rowCount();
@@ -108,4 +109,3 @@ class User
     }
 
 }
-

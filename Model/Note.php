@@ -1,4 +1,3 @@
-
 <?php
 
 Class Note
@@ -44,7 +43,7 @@ Class Note
         return $this->unAnimateur;
     }
 
-    
+
 
     public function ToString()
     {
