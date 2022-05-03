@@ -17,7 +17,7 @@ class Jeu
             $this->image = $image;
         }
     }
-
+    
     public static function UpdateJeu($id_jeu, $nom_jeu, $categorie_jeu, $image)
     {
         $requetePreparee = "UPDATE jeu SET nom_jeu = :tag_nom_jeu, categorie_jeu = :tag_categorie_jeu, image = :tag_image WHERE id_jeu = :tag_id_jeu;";
