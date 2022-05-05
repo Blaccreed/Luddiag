@@ -4,7 +4,7 @@ require_once "Grille.php";
 //ANDROIIIIIIIIIIIIIIIIIIIIIIIIIIID
 class Joueur extends User
 {
-    
+    // SUUUUUUUUUUUUUU
     private $nombre_points;
     private $lesGrillesduJoueur;
 
