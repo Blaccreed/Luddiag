@@ -57,5 +57,6 @@ class Joueur extends User
         }
     }
 
+    // la lame qu'on ne voit pas est la plus dangereuse
 
 }
