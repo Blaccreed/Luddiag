@@ -12,7 +12,7 @@
     <?php include './View/Components/navbar.view.php'; ?>
     <!-- Fin Navbar -->
     <div class="mt-12">
-        <p>Bienvenu Sur lululuDiag</p>
+        <p class="text-2xl ml-5">Bienvenue</p>
     </div>
 
 </body>
