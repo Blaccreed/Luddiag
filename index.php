@@ -34,6 +34,13 @@ switch ($uc) {
   require('Model/Organisateur.php');
   require('View/creation_user.view.php');
   break;
+  
+  case 'connection':
+    require('View/Form/connection.view.php');
+    break;
+
+  default:
+  require('View/notFound.view.php');
 
 
 }
