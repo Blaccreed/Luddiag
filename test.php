@@ -30,7 +30,7 @@ Connexion::connect();
 //Joueur::NotationJeu(2, 1, 1, 10);
 
 //echo "---------------------User--------------------"
-User::SeConnecter('dylan.hacquart@flip.fr', 'dylan');
+// User::SeConnecter('dylan.hacquart@flip.fr', 'dylan');
 
 while ($_noteJeuParCategorie = Note::noteJeuParCategorie()) {
     echo $_noteJeuParCategorie->noteParjeu;

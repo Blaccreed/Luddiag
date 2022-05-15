@@ -65,7 +65,7 @@ class Note
 
     public function noteJeuParCategorie()
     {
-        $q = connexion::pdo()->prepare("
+        $q = Connexion::pdo()->prepare("
 
      SELECT categorie_jeu, SUM(ALL note) as noteParJeu
      FROM noter as n
@@ -84,7 +84,7 @@ class Note
 
     public function GetMoyenneNoteParJeu()
     {
-        $q = connexion::pdo()->prepare("
+        $q = Connexion::pdo()->prepare("
      SELECT id_jeu, AVG(note) as moyenneParJeu
      FROM noter
      WHERE note IS NOT NULL 
@@ -100,7 +100,7 @@ class Note
 
     public function GetNombreTotalDeJoueursAyantNoteUnJeu()
     {
-        $q = connexion::pdo()->prepare("
+        $q = Connexion::pdo()->prepare("
 
      SELECT id_jeu, count(*) as nbJoueursAyantNoteUnJeu
      FROM noter
