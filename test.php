@@ -6,7 +6,7 @@ require_once 'Connexion.php';
 
 ini_set('display_errors', 1);
 
-Connexion::connect();
+// Connexion::connect();
 
 // Organisateur::AjouterOrganisateur(50, 'ezaaze','fazzer', 'ezazetzet', 'ezaatezze', 'zeaztzet', 'aezrzet', 'ezazzet', 'zeezate');
 // Organisateur::AjouterExposant(30, 'ezaaze','fazzer', 'ezazetzet', 'ezaatezze', 'zeaztzet', 'aezrzet', 'ezazzet', 'zeezate');

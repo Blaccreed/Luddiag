@@ -63,7 +63,7 @@ class Note
             $this->unAnimateur->GetNomUser();
     }
 
-    public function noteJeuParCategorie()
+    public static function noteJeuParCategorie()
     {
         $q = Connexion::pdo()->prepare("
 
@@ -82,7 +82,7 @@ class Note
         return $_noteJeuParCategorie;
     }
 
-    public function GetMoyenneNoteParJeu()
+    public static function GetMoyenneNoteParJeu()
     {
         $q = Connexion::pdo()->prepare("
      SELECT id_jeu, AVG(note) as moyenneParJeu
@@ -98,7 +98,7 @@ class Note
         return $_noteMoyenneNoteParJeu;
     }
 
-    public function GetNombreTotalDeJoueursAyantNoteUnJeu()
+    public static function GetNombreTotalDeJoueursAyantNoteUnJeu()
     {
         $q = Connexion::pdo()->prepare("
 
