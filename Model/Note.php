@@ -67,7 +67,7 @@ class Note
     {
         $q = connexion::pdo()->prepare("
 
-     SELECT *
+     SELECT SUM(ALL note)
      FROM noter as n
      INNER JOIN jeu as j
      ON j.id_jeu = n.id_jeu
