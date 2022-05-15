@@ -1,6 +1,7 @@
 <?php
 require_once 'Organisateur.php';
 require_once 'Jeu.php';
+require_once 'Note.php';
 require_once 'Connexion.php';
 
 ini_set('display_errors', 1);
