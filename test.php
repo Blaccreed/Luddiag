@@ -32,6 +32,18 @@ Connexion::connect();
 //echo "---------------------User--------------------"
 User::SeConnecter('dylan.hacquart@flip.fr', 'dylan');
 
-Note::noteJeuParCategorie();
+while ($_noteJeuParCategorie = Note::noteJeuParCategorie()) {
+    echo $_noteJeuParCategorie->noteParjeu;
+}
+
+while ($_noteMoyenneNoteParJeu = Note::GetMoyenneNoteParJeu()) {
+    echo $_noteMoyenneNoteParJeu->moyenneParJeu;
+}
+
+while (
+    $_nombreTotalDeJoueursAyantNoteUnJeu = Note::GetNombreTotalDeJoueursAyantNoteUnJeu()
+) {
+    echo $_nombreTotalDeJoueursAyantNoteUnJeu->nbJoueursAyantNoteUnJeu;
+}
 ?>
 

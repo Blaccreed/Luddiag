@@ -67,7 +67,7 @@ class Note
     {
         $q = connexion::pdo()->prepare("
 
-     SELECT SUM(ALL note)
+     SELECT categorie_jeu, SUM(ALL note) as noteParJeu
      FROM noter as n
      INNER JOIN jeu as j
      ON j.id_jeu = n.id_jeu
@@ -80,6 +80,39 @@ class Note
         $_noteJeuParCategorie = $q->fetch(PDO::FETCH_OBJ);
 
         return $_noteJeuParCategorie;
+    }
+
+    public function GetMoyenneNoteParJeu()
+    {
+        $q = connexion::pdo()->prepare("
+     SELECT id_jeu, AVG(note) as moyenneParJeu
+     FROM noter
+     WHERE note IS NOT NULL 
+     GROUP BY id_jeu
+     ");
+
+        $q->execute([]);
+
+        $_noteMoyenneNoteParJeu = $q->fetch(PDO::FETCH_OBJ);
+
+        return $_noteMoyenneNoteParJeu;
+    }
+
+    public function GetNombreTotalDeJoueursAyantNoteUnJeu()
+    {
+        $q = connexion::pdo()->prepare("
+
+     SELECT id_jeu, count(*) as nbJoueursAyantNoteUnJeu
+     FROM noter
+     WHERE note IS NOT NULL
+     GROUP BY id_jeu
+     ");
+
+        $q->execute([]);
+
+        $_nombreTotalDeJoueursAyantNoteUnJeu = $q->fetch(PDO::FETCH_OBJ);
+
+        return $_nombreTotalDeJoueursAyantNoteUnJeu;
     }
 }
 
