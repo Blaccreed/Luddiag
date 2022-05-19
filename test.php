@@ -2,7 +2,7 @@
 require_once "./Model/Organisateur.php";
 require_once "./Model/Jeu.php";
 require_once "./Config/Connexion.php";
-
+echo "zefgeze";
 
 ini_set('display_errors', 1);
 
