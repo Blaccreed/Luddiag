@@ -1,15 +1,17 @@
 <?php
-require_once './Model/Organisateur.php';
-require_once './Model/Jeu.php';
-require_once './Model/Note.php';
-require_once './Model/Connexion.php';
+require_once "./Model/Organisateur.php";
+require_once "./Model/Jeu.php";
+require_once "./Config/Connexion.php";
+
 
 ini_set('display_errors', 1);
 
-// Connexion::connect();
+Connexion::connect();
 
 // Organisateur::AjouterOrganisateur(50, 'ezaaze','fazzer', 'ezazetzet', 'ezaatezze', 'zeaztzet', 'aezrzet', 'ezazzet', 'zeezate');
 // Organisateur::AjouterExposant(30, 'ezaaze','fazzer', 'ezazetzet', 'ezaatezze', 'zeaztzet', 'aezrzet', 'ezazzet', 'zeezate');
+
+
 
 // echo "------------Grille-----------------";
 // $tab_Grille = Joueur::GetLesGrillesJoueur(1);
@@ -31,20 +33,7 @@ ini_set('display_errors', 1);
 //Joueur::NotationJeu(2, 1, 1, 10);
 
 //echo "---------------------User--------------------"
-// User::SeConnecter('dylan.hacquart@flip.fr', 'dylan');
+User::SeConnecter("dylan.hacquart@flip.fr", "dylan");
 
-while ($_noteJeuParCategorie = Note::noteJeuParCategorie()) {
-    echo $_noteJeuParCategorie->noteParjeu;
-}
-
-while ($_noteMoyenneNoteParJeu = Note::GetMoyenneNoteParJeu()) {
-    echo $_noteMoyenneNoteParJeu->moyenneParJeu;
-}
-
-while (
-    $_nombreTotalDeJoueursAyantNoteUnJeu = Note::GetNombreTotalDeJoueursAyantNoteUnJeu()
-) {
-    echo $_nombreTotalDeJoueursAyantNoteUnJeu->nbJoueursAyantNoteUnJeu;
-}
 ?>
 
