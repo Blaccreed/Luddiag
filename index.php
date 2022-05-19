@@ -39,6 +39,17 @@ switch ($uc) {
     require('View/Form/connection.view.php');
     break;
 
+  case 'jeux':
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    require('./Config/Connexion.php');
+    Connexion::connect();
+    require('./Model/Jeu.php');
+    $tab_jeux = Jeu::GetTousLesJeux();
+    require('./View/Jeux/jeux.view.php');
+    break;
+
   default:
   require('View/notFound.view.php');
 

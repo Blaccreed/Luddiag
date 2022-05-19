@@ -1,5 +1,15 @@
-<a href="index.php?uc=accueil" style="color: black;">Accueil</a>
-<a href="index.php?uc=grille" style="color: black;">Grille des joueurs</a>
-<a href="index.php?uc=exposant" style="color: black;">Mes notes</a>
-<a href="index.php?uc=create_user" style="color: black;">Creation Exposant/Editeur</a>
-<h1>Mes Notes</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Note</title>
+</head>
+<body>
+    <!-- Include the navbar in Components/navbar.view.php -->
+    <?php include './View/Components/navbar.view.php'; ?>
+    <!-- Fin Navbar -->
+</body>
+</html>

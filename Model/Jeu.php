@@ -5,16 +5,17 @@ class Jeu
     private $id_jeu;
     private $nom_jeu;
     private $categorie_jeu;
-    private $SesNotes;
+    private $note_moyenne;
+    private $nb_votant;
 
-    public function __construct($id_jeu = null, $nom_jeu = null, $categorie_jeu = null, $image = null)
+    public function __construct($id_jeu = null, $nom_jeu = null, $categorie_jeu = null, $image = null, $note_moyenne = null, $nb_votant = null)
     {
         if (!is_null($id_jeu)) {
             $this->id_jeu = $id_jeu;
             $this->nom_jeu = $nom_jeu;
             $this->categorie_jeu = $categorie_jeu;
-            $this->SesNotes = array();
-            $this->image = $image;
+            $this->note_moyenne = $note_moyenne;
+            $this->nb_votant = $nb_votant;
         }
     }
     
@@ -38,7 +39,17 @@ class Jeu
 
     public static function GetTousLesjeux()
     {
-        $requetePreparee = "SELECT * FROM jeu";
+        $requetePreparee = "SELECT 
+                                jeu.id_jeu,
+                                jeu.nom_jeu,
+                                jeu.categorie_jeu, 
+                                jeu.image, 
+                                sum(noter.id_jeu) as note_moyenne, 
+                                count(noter.id_jeu) as nb_votant 
+                            FROM jeu 
+                            inner join noter 
+                            on jeu.id_jeu = noter.id_jeu
+                            group by jeu.id_jeu;";
         $reponse = Connexion::pdo()->query($requetePreparee);
         $reponse->setFetchMode(PDO::FETCH_CLASS, 'Jeu');
         $tab = $reponse->fetchAll();
@@ -81,9 +92,14 @@ class Jeu
         return $this->categorie_jeu;
     }
 
-    public function GetSesNotes()
+    public function GetNoteMoyenne()
     {
-        return $this->SesNotes;
+        return $this->note_moyenne;
+    }
+
+    public function GetNbVotant()
+    {
+        return $this->nb_votant;
     }
 
     public function GetImage()
