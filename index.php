@@ -1,7 +1,7 @@
 <?php /*if($_SERVER["HTTPS"] != "on") { header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); exit(); } */?>
 <?php
 //require 'Config/Connexion.php';
-//session_start();
+session_start();
 
 if(!isset($_GET["uc"]) ){
   $uc = "accueil";
@@ -36,6 +36,9 @@ switch ($uc) {
   break;
   
   case 'connection':
+    require('config/Connexionx.php');
+    //Ajout pour permettre de faire la connexion
+    require('Model/Login.php');
     require('View/Form/connection.view.php');
     break;
 
