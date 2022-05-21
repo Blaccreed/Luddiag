@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../../View/Jeux/Jeux.js"></script>
-    <title>Jeux</title>
+    <title>JeuxII</title>
 </head>
 <body>
     <!-- Include the navbar in Components/navbar.view.php -->

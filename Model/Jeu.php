@@ -44,7 +44,7 @@ class Jeu
                                 jeu.nom_jeu,
                                 jeu.categorie_jeu, 
                                 jeu.image, 
-                                sum(noter.id_jeu) as note_moyenne, 
+                                avg(noter.note) as note_moyenne, 
                                 count(noter.id_jeu) as nb_votant 
                             FROM jeu 
                             inner join noter 
