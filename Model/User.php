@@ -127,11 +127,16 @@ class User
 
         try {
             $req_prep->execute($arrayName);
-            $count = $req_prep->rowCount();
-            if ($count == 1) {
-                echo 'connecté';
+            $reponse = $req_prep->rowCount();
+            if ($reponse == 1) {
+                $req_prep->setFetchMode(PDO::FETCH_CLASS, 'User');
+                $user = $req_prep->fetch();
+                return $user->id_user;
+                //On return l'id ce qui nous permettra de savoir si il s'agit de quel type d'utilisateur il s'agit
+
             } else {
-                echo 'e-mail ou mot de passe incorrect';
+                //On retourne null pour montrer que aucun utilisateur n'as ete trouver
+                return null;
             }
         } catch (PDOException $e) {
             echo 'erreur: ' . $e->getMessage() . '</br>';
