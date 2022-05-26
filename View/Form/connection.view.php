@@ -33,18 +33,18 @@
                 name="mail"
                 class="bg-transparent border-b-2 mt-3 outline outline-0 text-gray-500 h-12"
                 placeholder="Email"
-                htmlFor="username" name="mdp_user"
+                htmlFor="username" name="mail_user"
               />
               <div class="flex flex-row items-center">
-                <p class="text-lg mt-16 font-semibold" id="password">
+                <p class="text-lg mt-16 font-semibold" id="password" >
                   Password
                 </p>
               </div>
               <input
                 type="password"
-                name="mdp"
+                name="mdp_user"
                 class="bg-transparent bor border-b-2 mt-2 outline outline-0 h-12"
-                htmlFor="password"
+                htmlFor="password" 
               />
 <<<<<<< HEAD
 
