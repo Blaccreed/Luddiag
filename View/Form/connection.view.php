@@ -56,9 +56,9 @@
 =======
               <div class="flex flex-col items-center justify-center mt-16">
 >>>>>>> a090792ecdffcaedbbcd74b4787f08945ae5e503
-              <button class="bg-[#81CCEF] hover:bg-[#40B1E6] text-white rounded-lg w-24 h-12 mb-9">
+              <!--<button class="bg-[#81CCEF] hover:bg-[#40B1E6] text-white rounded-lg w-24 h-12 mb-9">
                 Valider
-              </button>
+              </button>-->
             </div>
             </form>
             
