@@ -12,7 +12,8 @@
     <?php include './View/Components/navbar.view.php'; ?>
     <!-- Fin Navbar -->
     <div class="mt-12">
-        <p class="text-2xl ml-5">Bienvenue</p>
+        <p class="text-2xl ml-5">Bienvenue<!--Affiche le nom de l'utilisateur en session--> 
+        <?php echo $_SESSION['nom_user']; ?></p>
     </div>
 
 </body>

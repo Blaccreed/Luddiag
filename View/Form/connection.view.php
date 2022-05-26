@@ -17,7 +17,7 @@
             <p class="text-3xl font-bold  text-center">Connection</p>
           </div>
           <div class="mt-5">
-            <form class="text-lg mt-12">
+            <form class="text-lg mt-12" method="post" >
               <div class="flex flex-row items-center">
                 <MailIcon class="h-6" />
                 <p class="text-lg font-semibold" id="username">
@@ -29,7 +29,7 @@
                 id='emailInput'
                 class="bg-transparent border-b-2 mt-3 outline outline-0 text-gray-500 h-12"
                 placeholder="Email"
-                htmlFor="username"
+                htmlFor="username" name="mdp_user"
               />
               <div class="flex flex-row items-center">
                 <p class="text-lg mt-16 font-semibold" id="password">
@@ -41,6 +41,10 @@
                 class="bg-transparent bor border-b-2 mt-2 outline outline-0 h-12"
                 htmlFor="password"
               />
+
+              <input type="submit" value="connecter" name="login">
+
+
             </form>
             <div class="flex flex-col items-center justify-center mt-16">
               <button class="bg-[#81CCEF] hover:bg-[#40B1E6] text-white rounded-lg w-24 h-12 mb-9">
