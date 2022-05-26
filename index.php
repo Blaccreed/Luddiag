@@ -20,7 +20,7 @@ switch ($uc) {
 //permet à l'organisateur de valider les grilles
   case 'grille':
   require('Model/Grille.php');
-  require('View/grille.view.php');
+  require_once('./View/grille.view.php');
   break;
 
 
@@ -36,25 +36,28 @@ switch ($uc) {
   break;
   
   case 'connection':
-    require('config/Connexionx.php');
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    require_once('./Config/Connection.php');
     //Ajout pour permettre de faire la connexion
-    require('Model/Login.php');
-    require('View/Form/connection.view.php');
+    //require('Model/Login.php');
+    require_once('View/Form/connection.view.php');
     break;
 
   case 'jeux':
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    require('./Config/Connexion.php');
+    require_once('./Config/Connection.php');
     Connexion::connect();
-    require('./Model/Jeu.php');
+    require_once('./Model/Jeu.php');
     $tab_jeux = Jeu::GetTousLesJeux();
-    require('./View/Jeux/jeux.view.php');
+    require_once('./View/jeux.view.php');
     break;
 
   default:
-  require('View/notFound.view.php');
+  require_once('View/notFound.view.php');
 
 
 }

@@ -11,6 +11,6 @@
     <!-- Include the navbar in Components/navbar.view.php -->
     <?php include './View/Components/navbar.view.php'; ?>
     <!-- Fin Navbar -->
-    <p>T'es allé ou frérot la ?</p>
+    <p>Page introuvable</p>
 </body>
 </html>
