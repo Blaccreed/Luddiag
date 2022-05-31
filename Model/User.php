@@ -143,6 +143,26 @@ class User
         }
     }
 
+    public static function TestRole($idUser, $role){
+        $sql = "select Count(*) as nb from $role where id_user = :idUser";
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = [
+            'idUser' => $idUser,
+        ];
+        try {
+            $req_prep->execute($arrayName);
+            $reponse = $req_prep->fetch();
+            if ($reponse['nb'] == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo 'erreur: ' . $e->getMessage() . '</br>';
+        }
+    }
+    
+
     public static function InscriptionJoueur(
         $id,
         $nom_user,

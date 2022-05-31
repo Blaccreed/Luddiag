@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Grille</title>
+    <title>Accueil</title>
 </head>
 <body>
-    <!-- Include the navbar in Components/navbar.view.php -->
-    <?php include './View/Components/navbar.view.php'; ?>
-    <!-- Fin Navbar -->
+    <!-- include the navbar -->
+    <?php
+include './View/Components/navbar.view.php';
+?>
+    <!-- Un exposant peut uniquement consulter la note de ces jeux donc tout sera fait sur la page d'accueil -->
 </body>
 </html>
