@@ -6,6 +6,10 @@ class Organisateur extends User
 {
     private $fonction;
 
+    /*
+    Le constructeur est inutile vu que les seuls chose utile de cette classe sont les inserts into 
+    qui sont static et ne requiert pas le constructeur
+    */
     public function __construct($id_user = null, $nom_user = null, $prenom_user = null, $mdp_user = null, $mail_user = null, $phone_user = null, $adresse_user = null, $cd_postal_user = null, $fonction = null)
     {
         if (!is_null($id_user)) {
@@ -13,6 +17,10 @@ class Organisateur extends User
             $this->fonction = $fonction;
         }
     }
+
+    /*
+
+    inutile ???
 
     public function GetFonction()
     {
@@ -23,6 +31,8 @@ class Organisateur extends User
     {
         $this->fonction = $fonction;
     }
+    
+    */
 
     public static function AjouterAnimateur($nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user, $stand)
     {

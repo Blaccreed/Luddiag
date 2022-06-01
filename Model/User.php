@@ -33,6 +33,15 @@ class User
         }
     }
 
+    public function GetIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /*
+
+    inutile ???
+
     public function UpdateUser(
         $id_user,
         $nom_user,
@@ -52,66 +61,62 @@ class User
         $this->adresse_user = $adresse_user;
         $this->cd_postal_user = $cd_postal_user;
     }
-
+    
     public function ToString()
     {
-        return 'ID : ' +
-            $this->id_user +
-            ' | Nom : ' +
-            $this->nom_user +
-            ' | Prenom : ' +
-            $this->prenom_user +
-            ' | Mot de passe : ' +
-            $this->mdp_user +
-            ' | Mail : ' +
-            $this->mail_user +
-            ' | Phone : ' +
-            $this->phone_user +
-            ' | Adresse : ' +
-            $this->adresse_user +
-            ' | Code postal : ' +
-            $this->cd_postal_user;
-    }
-
-    public function GetIdUser()
-    {
-        return $this->id_user;
+    return 'ID : ' +
+    $this->id_user +
+    ' | Nom : ' +
+    $this->nom_user +
+    ' | Prenom : ' +
+    $this->prenom_user +
+    ' | Mot de passe : ' +
+    $this->mdp_user +
+    ' | Mail : ' +
+    $this->mail_user +
+    ' | Phone : ' +
+    $this->phone_user +
+    ' | Adresse : ' +
+    $this->adresse_user +
+    ' | Code postal : ' +
+    $this->cd_postal_user;
     }
 
     public function GetNomUser()
     {
-        return $this->nom_user;
+    return $this->nom_user;
     }
 
     public function GetPrenomUser()
     {
-        return $this->prenom_user;
+    return $this->prenom_user;
     }
 
     public function GetMdpUser()
     {
-        return $this->mdp_user;
+    return $this->mdp_user;
     }
 
     public function GetMailUser()
     {
-        return $this->mail_user;
+    return $this->mail_user;
     }
 
     public function GetPhoneUser()
     {
-        return $this->phone_user;
+    return $this->phone_user;
     }
 
     public function GetAdresseUser()
     {
-        return $this->adresse_user;
+    return $this->adresse_user;
     }
     //calvin
     public function GetCdPostUser()
     {
-        return $this->cd_postal_user;
+    return $this->cd_postal_user;
     }
+     */
 
     public static function SeConnecter($mail_user, $mdp_user)
     {
@@ -143,7 +148,8 @@ class User
         }
     }
 
-    public static function TestRole($idUser, $role){
+    public static function TestRole($idUser, $role)
+    {
         $sql = "select Count(*) as nb from $role where id_user = :idUser";
         $req_prep = Connexion::pdo()->prepare($sql);
         $arrayName = [
@@ -161,40 +167,42 @@ class User
             echo 'erreur: ' . $e->getMessage() . '</br>';
         }
     }
-    
 
-    public static function InscriptionJoueur(
-        $id,
-        $nom_user,
-        $prenom_user,
-        $mdp_user,
-        $mail_user,
-        $phone_user,
-        $adresse_user,
-        $cd_postal_user,
-        $type_exposant
-    ) {
-        $requetePreparee = "INSERT INTO user VALUES(:tag_id, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
-                        INSERT INTO joueur VALUES(:tag_id, :tag_type_exposant);";
+    /*
+inutile ???
+public static function InscriptionJoueur(
+$id,
+$nom_user,
+$prenom_user,
+$mdp_user,
+$mail_user,
+$phone_user,
+$adresse_user,
+$cd_postal_user,
+$type_exposant
+) {
+$requetePreparee = "INSERT INTO user VALUES(:tag_id, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
+INSERT INTO joueur VALUES(:tag_id, :tag_type_exposant);";
 
-        $req_prep = Connexion::pdo()->prepare($requetePreparee);
+$req_prep = Connexion::pdo()->prepare($requetePreparee);
 
-        $arrayName = [
-            'tag_id' => $id,
-            'tag_nom' => $nom_user,
-            'tag_prenom' => $prenom_user,
-            'tag_mdp' => $mdp_user,
-            'tag_mail' => $mail_user,
-            'tag_phone' => $phone_user,
-            'tag_adress' => $adresse_user,
-            'tag_zip' => $cd_postal_user,
-            'tag_type_exposant' => $type_exposant,
-        ];
+$arrayName = [
+'tag_id' => $id,
+'tag_nom' => $nom_user,
+'tag_prenom' => $prenom_user,
+'tag_mdp' => $mdp_user,
+'tag_mail' => $mail_user,
+'tag_phone' => $phone_user,
+'tag_adress' => $adresse_user,
+'tag_zip' => $cd_postal_user,
+'tag_type_exposant' => $type_exposant,
+];
 
-        try {
-            $req_prep->execute($arrayName);
-        } catch (PDOException $e) {
-            echo 'erreur: ' . $e->getMessage() . '</br>';
-        }
-    }
+try {
+$req_prep->execute($arrayName);
+} catch (PDOException $e) {
+echo 'erreur: ' . $e->getMessage() . '</br>';
+}
+}
+ */
 }

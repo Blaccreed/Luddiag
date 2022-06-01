@@ -1,5 +1,12 @@
 <?php
 
+/*
+    Pour l'instant elle sert à rien
+    mais elle pourrait servir pour récupérer
+    les notes des jeux pour l'exposant
+*/
+
+
 class Note
 {
     private $id_note;

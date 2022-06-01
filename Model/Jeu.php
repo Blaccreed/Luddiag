@@ -1,5 +1,11 @@
 <?php
 
+/*
+    La classe complète sert strictement à rien
+    on ne récupèrera jamais globalement tout les jeux
+    car on a aucun cas d'utilisation qui réponds à ces besoins
+*/
+
 class Jeu
 {
     private $id_jeu;
@@ -59,7 +65,7 @@ class Jeu
 
     public function ToString()
     {
-        echo "<p>$this->id_jeu,  $this->nom_jeu,$this->categorie_jeu </p>";
+        echo "<p>$this->id_jeu, $this->nom_jeu,$this->categorie_jeu </p>";
     }
 
     public function SetIdJeu($id_jeu)

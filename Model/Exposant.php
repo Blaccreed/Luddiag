@@ -1,6 +1,11 @@
 <?php
+
+/*
+    Rompish tellement ça sert à rien
+*/
+
 require_once "User.php";
-//session_start();
+
 
 
 class Exposant extends User

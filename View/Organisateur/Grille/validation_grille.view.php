@@ -14,10 +14,10 @@
             include './View/Components/navbar_organisateur.view.php';
         ?>
         <div class="flex flex-col justify-center items-center mt-20">
-            <form class="bg-zinc-800 flex flex-col text-white h-52 justify-evenly px-5 rounded-md items-center">
+            <form class="bg-zinc-700 flex flex-col text-white h-96 justify-evenly px-5 rounded-lg items-center border-4 border-cyan-300">
                 <label class="text-xl underline font-semibold">Selectionner le numero de la grille utilisateur</label>
-                <input placeholder="Identifiant" type="text" class="bg-zinc-800 border-2 border-white pl-2 w-full" name="grille"/>
-                <button class="border-white border-2 hover:bg-white hover:text-zinc-800 w-32 h-10 rounded-lg">Valider</button>
+                <input placeholder="Identifiant" type="text" class="bg-zinc-600 border-2 border-white pl-2 w-full" name="grille"/>
+                <button class="border-white border-2 hover:bg-white hover:text-zinc-600 w-32 h-10 rounded-lg">Valider</button>
             </form>
         </div>
         <?php

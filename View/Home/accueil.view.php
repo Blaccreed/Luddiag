@@ -11,8 +11,6 @@
     <!-- Include the navbar in Components/navbar.view.php -->
     <?php include './View/Components/navbar.view.php'; ?>
     <!-- Fin Navbar -->
-    <div class="mt-12">
-        <p class="text-2xl ml-5">Bienvenue<!--Affiche le nom de l'utilisateur en session--> 
-    </div>
+    <div class="mt-12"></div>
 </body>
 </html>
