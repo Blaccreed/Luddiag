@@ -10,8 +10,13 @@
 <body>
     <!-- include the navbar -->
     <?php
-include './View/Components/navbar.view.php';
+include './View/Components/navbar_exposant.view.php';
 ?>
     <!-- Un exposant peut uniquement consulter la note de ces jeux donc tout sera fait sur la page d'accueil -->
+    <?php
+        //Pour l'instant le code va être dégueulasse mais on corrigera plus tard
+        $id_exposant = $_SESSION['id_user'];
+        
+    ?>
 </body>
 </html>

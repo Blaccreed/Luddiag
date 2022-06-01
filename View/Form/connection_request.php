@@ -26,7 +26,6 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
 
         if(User::testRole($iduser, $role))
         {
-            echo "role ok";
             $_SESSION['id_user'] = $user->id_user;
             $_SESSION['role'] = $role;
             header('Location: ../../index.php');

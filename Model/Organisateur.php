@@ -24,35 +24,9 @@ class Organisateur extends User
         $this->fonction = $fonction;
     }
 
-    public static function AjouterAnimateur($id, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user, $stand)
+    public static function AjouterAnimateur($nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user, $stand)
     {
-        $requetePreparee = "INSERT INTO user VALUES(:tag_id, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
-                        INSERT INTO organisateur VALUES(:tag_id, :tag_stand);";
-
-        $req_prep = Connexion::pdo()->prepare($requetePreparee);
-
-        $arrayName = array("tag_id" => $id,
-            "tag_nom" => $nom_user,
-            "tag_prenom" => $prenom_user,
-            "tag_mdp" => $mdp_user,
-            "tag_mail" => $mail_user,
-            "tag_phone" => $phone_user,
-            "tag_adress" => $adresse_user,
-            "tag_zip" => $cd_postal_user,
-            "tag_stand" => $stand);
-
-        try {
-            $req_prep->execute($arrayName);
-        } catch (PDOException $e) {
-            echo "erreur: " . $e->getMessage() . "</br>";
-        }
-    }
-
-    public static function AjouterExposant($nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $code_postal_user, $type_exposant, $id_jeux)
-    {
-        $requetePreparee = "INSERT INTO user VALUES(DEFAULT, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
-                        INSERT INTO exposant VALUES(:tag_id, :tag_type_exposant);";
-
+        $requetePreparee = "INSERT INTO user_flip VALUES(DEFAULT, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip)";
         $req_prep = Connexion::pdo()->prepare($requetePreparee);
 
         $arrayName = array(
@@ -62,9 +36,65 @@ class Organisateur extends User
             "tag_mail" => $mail_user,
             "tag_phone" => $phone_user,
             "tag_adress" => $adresse_user,
-            "tag_zip" => $cd_postal_user,
-            "tag_type_exposant" => $type_exposant
+            "tag_zip" => $cd_postal_user        
         );
+        
+        try {
+            $req_prep->execute($arrayName);
+        } catch (PDOException $e) {
+            echo "erreur: " . $e->getMessage() . "</br>";
+            return false;
+        }
+        
+        $id = Connexion::pdo()->lastInsertId();
+
+        $sql = "INSERT INTO Animateur VALUES(:tag_id, :tag_stand);";
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = array(
+            "tag_id" => $id,
+            "tag_stand" => $stand
+        );
+
+        try {
+            $req_prep->execute($arrayName);
+        } catch (PDOException $e) {
+            echo "erreur: " . $e->getMessage() . "</br>";
+            return false;
+        }
+        return true;
+    }
+
+    public static function AjouterExposant($nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $code_postal_user, $type_exposant, $id_jeux)
+    {
+        $requetePreparee = "INSERT INTO user_flip VALUES(DEFAULT, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip)";
+        $req_prep = Connexion::pdo()->prepare($requetePreparee);
+
+        $arrayName = array(
+            "tag_nom" => $nom_user,
+            "tag_prenom" => $prenom_user,
+            "tag_mdp" => $mdp_user,
+            "tag_mail" => $mail_user,
+            "tag_phone" => $phone_user,
+            "tag_adress" => $adresse_user,
+            "tag_zip" => $code_postal_user
+        );
+        try {
+            $req_prep->execute($arrayName);
+        } catch (PDOException $e) {
+            echo "erreur: " . $e->getMessage() . "</br>";
+            return false;
+        }
+        
+        $id = Connexion::pdo()->lastInsertId();
+
+        $sql = "INSERT INTO Exposant VALUES(:tag_id, :tag_type, :tag_jeux);";
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = array(
+            "tag_id" => $id,
+            "tag_type" => $type_exposant,
+            "tag_jeux" => $id_jeux
+        );
+
         try {
             $req_prep->execute($arrayName);
             return true;
@@ -72,5 +102,7 @@ class Organisateur extends User
             echo "erreur: " . $e->getMessage() . "</br>";
             return false;
         }
+        return true;
+
     }
 }
