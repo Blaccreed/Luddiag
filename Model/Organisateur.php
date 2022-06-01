@@ -48,14 +48,14 @@ class Organisateur extends User
         }
     }
 
-    public static function AjouterExposant($id, $nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $cd_postal_user, $type_exposant)
+    public static function AjouterExposant($nom_user, $prenom_user, $mdp_user, $mail_user, $phone_user, $adresse_user, $code_postal_user, $type_exposant, $id_jeux)
     {
-        $requetePreparee = "INSERT INTO user VALUES(:tag_id, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
+        $requetePreparee = "INSERT INTO user VALUES(DEFAULT, :tag_nom, :tag_prenom, :tag_mdp, :tag_mail, :tag_phone, :tag_adress, :tag_zip);
                         INSERT INTO exposant VALUES(:tag_id, :tag_type_exposant);";
 
         $req_prep = Connexion::pdo()->prepare($requetePreparee);
 
-        $arrayName = array("tag_id" => $id,
+        $arrayName = array(
             "tag_nom" => $nom_user,
             "tag_prenom" => $prenom_user,
             "tag_mdp" => $mdp_user,
@@ -63,12 +63,14 @@ class Organisateur extends User
             "tag_phone" => $phone_user,
             "tag_adress" => $adresse_user,
             "tag_zip" => $cd_postal_user,
-            "tag_type_exposant" => $type_exposant);
-
+            "tag_type_exposant" => $type_exposant
+        );
         try {
             $req_prep->execute($arrayName);
+            return true;
         } catch (PDOException $e) {
             echo "erreur: " . $e->getMessage() . "</br>";
+            return false;
         }
     }
 }
