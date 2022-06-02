@@ -1,3 +1,9 @@
+<?php
+
+//Here we are going to handle the error
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +11,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./View/Form/connection.js"></script>
     <title>Connection</title>
 </head>
 <body>
-    <div class="h-screen w-screen text-white">
-      <?php include './View/Components/navbar.view.php'; ?>
+    <div class="h-screen w-screen text-white overflow-hidden">
+      <?php 
+      include './View/Components/navbar.view.php'; 
+
+      if(isset($_SESSION['error']))
+      {
+        echo '<div id="error" class="bg-red-500 text-white p-2">';
+          echo $_SESSION['error'];
+          echo '<button onClick="closeError()" class="text-white float-right">X</button>';
+        echo '</div>';
+        unset($_SESSION['error']);
+      }
+      ?>
       <div class="h-[90%] flex flex-col items-center justify-center mt-6">
         <div class="bg-zinc-800 w-1/3 h-[45rem] rounded-2xl flex flex-col items-center mb-32">
           <div class="h-20 w-72 mt-5 flex flex-col justify-center border-b-2">
