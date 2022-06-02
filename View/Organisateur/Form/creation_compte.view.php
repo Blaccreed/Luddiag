@@ -36,8 +36,8 @@
             <div class="inline-block relative w-64">
                 <select onchange="handleChangeUser(value)" name="role" class="ml-2 block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" id="type_user">
                     <option selected disabled>Choisir un type d'utilisateur</option>
-                    <option value="Exposant" id="editeur">Exposant</option>
-                        <option value="Animateur" id="animateur">Animateur</option>
+                    <option value="exposant" id="exposant">Exposant</option>
+                        <option value="animateur" id="animateur">Animateur</option>
                     </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 grid items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

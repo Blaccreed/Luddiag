@@ -34,9 +34,9 @@ if ($iduser == null) {
 if (User::testRole($iduser, $role)) {
     $_SESSION['id_user'] = $user->id_user;
     $_SESSION['role'] = $role;
-    header('Location: ../../index.php');
+    header('Location: ../../index.php?uc=accueil');
 } else {
-    $_SESSION['error'] = "Vous n\'avez pas le droit de vous connecter en tant qu'$role";
+    $_SESSION['error'] = "Vous n'avez pas le droit de vous connecter en tant qu'$role";
     header('Location: ../../index.php?uc=connection');
     return;
 }

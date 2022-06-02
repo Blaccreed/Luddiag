@@ -2,6 +2,7 @@
 
 session_start();
 
+
 if (!isset($_GET["uc"])) {
     $uc = "accueil";
 } else {
@@ -9,27 +10,27 @@ if (!isset($_GET["uc"])) {
 }
 
 switch ($uc) {
-
     case 'accueil':
         if (!isset($_SESSION['role'])) {
-            include './View/Home/accueil.view.php';
+            require_once './View/Home/accueil.view.php';
             break;
         }
-        if ($_SESSION['role'] == 'exposant') {
-            include './View/Home/accueil_exposant.view.php';
+        if ($_SESSION['role'] == 'Exposant') {
+            require_once './View/Home/accueil_exposant.view.php';
             break;
         }
-        if ($_SESSION['role'] == 'organisateur') {
-            include './View/Home/accueil_organisateur.view.php';
+        if ($_SESSION['role'] == 'Organisateur') {
+            require_once './View/Home/accueil_organisateur.view.php';
+            break;
+        }
+        else{
+            require_once './View/Home/accueil.view.php';
             break;
         }
 
     // #region Organisateur
 
     case 'validation_grille':
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
         require_once './View/Organisateur/Grille/validation_grille.view.php';
         break;
 
@@ -66,6 +67,7 @@ switch ($uc) {
     */
 
     default:
+        echo "test";
         require_once 'View/notFound.view.php';
 
 }
