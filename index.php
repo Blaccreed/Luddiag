@@ -27,7 +27,9 @@ switch ($uc) {
     // #region Organisateur
 
     case 'validation_grille':
-        require 'Model/Grille.php';
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         require_once './View/Organisateur/Grille/validation_grille.view.php';
         break;
 
