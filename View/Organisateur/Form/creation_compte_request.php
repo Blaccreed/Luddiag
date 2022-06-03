@@ -9,12 +9,11 @@ require_once "../../../Model/User.php";
 require_once "../../../Model/Organisateur.php";
 require_once "../../../Model/Exposant.php";
 
-var_dump($_POST);
 extract($_POST);
 
+session_start();
 // On regarde si l'utilisateur à bien sélectionner un role correctement
 if (!isset($_POST['role'])) {
-    session_start();
     $_SESSION['error'] = "Veuillez saisir un role valide";
 
     header("Location: ../../../index.php?uc=creer_compte");
@@ -23,14 +22,14 @@ if (!isset($_POST['role'])) {
 
 Connexion::connect();
 
-if ($role == "Exposant") {
+if ($role == "exposant") {
     if (!Organisateur::AjouterExposant($nom, $prenom, $mdp, $email, $tel, $adresse, $code_postal, $type_exposant, $id_jeux)) {
         //Si l'ajout a échoué on envoie un message d'erreur
         $_SESSION['error'] = "L'ajout de l'utilisateur a échoué.";
         header("Location: ../../../index.php?uc=creer_compte");
         return;
     }
-} else if ($role == "Animateur") {
+} else if ($role == "animateur") {
     if (Organisateur::AjouterAnimateur($nom, $prenom, $mdp, $email, $tel, $adresse, $code_postal, $stand)) {
         //Si l'ajout a échoué on envoie un message d'erreur
         $_SESSION['error'] = "L'ajout de l'utilisateur a échoué.";
@@ -40,4 +39,8 @@ if ($role == "Exposant") {
 } else {
     $_SESSION['error'] = "L'ajout de l'utilisateur a échoué.";
     header("Location: ../../../index.php?uc=creer_compte");
+    return;
 }
+
+$_SESSION['success'] = "L'ajout de l'utilisateur a réussi.";
+header("Location: ../../../index.php?uc=creer_compte");

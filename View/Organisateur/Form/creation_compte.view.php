@@ -6,7 +6,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, inital-scale=1, shrink-to-fit=no">
-    <script type="text/javascript" src="../../../View/Organisateur/Form/creation_compte.js"></script>
     <script type="text/javascript" src="./View/Organisateur/Form/creation_compte.js"></script>
     <title>Inscription</title>
 </head>
@@ -22,6 +21,13 @@
             echo '<button onClick="closeError()" class="text-white float-right">X</button>';
         echo '</div>';
         unset($_SESSION['error']);
+    }
+    else if(isset($_SESSION['success'])) {
+        echo '<div id="success" class="bg-green-500 text-white p-2">';
+            echo $_SESSION['success'];
+            echo '<button onClick="closeSuccess()" class="text-white float-right">X</button>';
+        echo '</div>';
+        unset($_SESSION['success']);
     }
     ?>
 <div class="mt-5 grid items-center justify-center w-screen">
@@ -67,8 +73,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2">
                 Mot de passe
             </label>
-            <input name="mdp" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="mdp" type="password" placeholder="**********">
-            <p class="text-red-500 text-xs italic">Veuillez rentrer 8 caractères au minimum.</p>
+            <input name="mdp" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mdp" type="password" placeholder="**********">
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2">

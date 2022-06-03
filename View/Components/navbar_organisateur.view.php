@@ -22,7 +22,7 @@
         <div class="flex flex-col h-16 w-36 hover:bg-zinc-700">
             <div class="h-[80%] flex flex-row justify-center items-center">
                 <a href="index.php?uc=creer_compte">
-                    Creer un compte
+                    Créer un compte
                 </a>
             </div>
             <div class="bg-green-100 h-[20%]"></div>
@@ -33,7 +33,7 @@
             <div class="flex flex-col h-16 w-28 hover:bg-zinc-700 mr-8 text-center">
                 <div class="h-[80%] flex flex-row justify-center items-center">
                     <a href="index.php?uc=deconnection">
-                        Deconnection
+                        Déconnection
                     </a>
                 </div>
                 <div class="bg-gray-100 h-[20%]"></div>

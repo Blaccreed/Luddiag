@@ -14,7 +14,7 @@ const handleChangeUser = (role) => {
     label.className = "block text-gray-700 text-sm font-bold mb-2";
     input.className = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
     
-    if(role == "Animateur")
+    if(role == "animateur")
     {
         input.name="stand"
         label.innerHTML = "Stand";
@@ -24,7 +24,7 @@ const handleChangeUser = (role) => {
         div.appendChild(input);
         
     }
-    else if(role == "Exposant")
+    else if(role == "exposant")
     {
         input.name="type_exposant"
         label.innerHTML = "Type exposant";
@@ -77,8 +77,14 @@ const deleteElement = () => {
     catch(e){}
 }
 
-const closeError = (error) => {
+const closeError = () => {
     //delete the div error
     const divError = document.getElementById('error');
+    divError.remove();
+}
+
+const closeSuccess = () => {
+    //delete the div success
+    const divError = document.getElementById('success');
     divError.remove();
 }
