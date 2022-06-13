@@ -12,9 +12,15 @@
     <?php 
         include './View/Components/navbar_organisateur.view.php';
     ?>
-    <div class="h-full w-screen flex flex-col">
-        <div class="bg-gray-200 w-3/4">
-            <p>Bienvenue sur votre espace <?php $_SESSION['role'] ?> </p>
+    <div class="h-full w-screen flex flex-row justify-center">
+        <div class="bg-gray-200 w-1/3 h-[30rem] flex flex-col items-center justify-evenly mt-32 rounded-lg drop-shadow-lg">
+                <p class="text-3xl font-semibold underline">Bienvenue sur votre espace Organisateur</p>
+                <button class="rounded-lg bg-cyan-500 h-24 w-32 drop-shadow-md">
+                    <label>Creer des comptes</label>
+                </button>
+                <button class="rounded-xl bg-cyan-500 h-24 w-32 drop-shadow-md">
+                    <label>Valider des grilles</label>
+                </button>
         </div>
     </div>
     

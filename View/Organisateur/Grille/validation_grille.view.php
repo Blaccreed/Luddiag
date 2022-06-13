@@ -25,7 +25,7 @@
             }
         ?>
         <div class="flex flex-row w-full h-2/3 items-center justify-evenly">
-            <div class="flex flex-col justify-evenly items-center mt-20 border-2 border-gray-200 w-1/3 h-1/3 px-8">
+            <div class="flex flex-col justify-evenly items-center mt-20 border-2 border-blue-300 bg-blue-200 w-1/3 h-1/3 px-8">
                 <label class="text-xl underline font-semibold">Selectionner le numero de la grille utilisateur</label>
                 <input id="grille-input" placeholder="Identifiant" type="text" class="bg-zinc-600 border-2 border-white pl-2 w-full" name="grille"/>
                 <?php

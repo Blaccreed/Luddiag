@@ -19,7 +19,6 @@ const getGrille = (id) => {
     //Check if the input is empty
     if(document.getElementById('grille-input').value == "")
     {
-        
         labelError.innerHTML = "Le champs identifiant de la grille est vide";
         document.getElementById('button-validation').parentNode.insertBefore(labelError, document.getElementById('button-validation'));
         return;

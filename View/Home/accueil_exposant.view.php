@@ -16,7 +16,9 @@ include './View/Components/navbar_exposant.view.php';
     <?php
         //Pour l'instant le code va être dégueulasse mais on corrigera plus tard
         $id_exposant = $_SESSION['id_user'];
-        
     ?>
+    <div>
+        
+    </div>
 </body>
 </html>

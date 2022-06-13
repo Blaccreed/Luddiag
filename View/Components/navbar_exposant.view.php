@@ -15,7 +15,7 @@
             <div class="flex flex-col h-16 w-28 hover:bg-zinc-700 mr-8 text-center">
                 <div class="h-[80%] flex flex-row justify-center items-center">
                     <a href="index.php?uc=deconnection">
-                        Déconnection
+                        Déconnexion
                     </a>
                 </div>
                 <div class="bg-gray-100 h-[20%]"></div>
