@@ -11,11 +11,11 @@
     <!-- include the navbar -->
     <?php 
         include './View/Components/navbar_organisateur.view.php';
-        echo '<br>';
-        echo $_SESSION['role'];
     ?>
-    <div class="h-full">
-        <h1>Bienvenue sur votre espace organisateur</h1>
+    <div class="h-full w-screen flex flex-col">
+        <div class="bg-gray-200 w-3/4">
+            <p>Bienvenue sur votre espace <?php $_SESSION['role'] ?> </p>
+        </div>
     </div>
     
 </body>

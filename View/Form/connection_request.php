@@ -32,7 +32,7 @@ if ($iduser == null) {
 }
 
 if (User::testRole($iduser, $role)) {
-    $_SESSION['id_user'] = $user->id_user;
+    $_SESSION['id_user'] = $iduser;
     $_SESSION['role'] = $role;
     header('Location: ../../index.php?uc=accueil');
 } else {
