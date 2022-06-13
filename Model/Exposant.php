@@ -1,12 +1,8 @@
 <?php
-
 /*
     Rompish tellement ça sert à rien
 */
-
 require_once "User.php";
-
-
 
 class Exposant extends User
 {

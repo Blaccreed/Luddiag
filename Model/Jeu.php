@@ -6,6 +6,8 @@
     car on a aucun cas d'utilisation qui réponds à ces besoins
 */
 
+use FTP\Connection;
+
 class Jeu
 {
     private $id_jeu;
@@ -42,6 +44,47 @@ class Jeu
             echo "erreur: " . $e->getMessage() . "</br>";
         }
     }
+
+
+    public static function GetJeuExposant($idExposant){
+        
+        //On va dans un premier temps re
+        $sql = "SELECT id_jeu FROM Exposant WHERE id_user=$idExposant";
+        
+        $reponse = Connexion::pdo()->prepare($sql);
+        $reponse->execute();
+
+        $tab = $reponse->fetch();
+
+        $idJeu = $tab['id_jeu'];
+
+        $sql = "SELECT 
+                    jeu.id_jeu,
+                    jeu.nom_jeu,
+                    jeu.categorie_jeu, 
+                    jeu.image, 
+                    avg(noter.note) as note_moyenne, 
+                    count(noter.id_jeu) as nb_votant 
+                FROM jeu 
+                    inner join noter 
+                    on jeu.id_jeu = noter.id_jeu
+                    group by jeu.id_jeu
+                WHERE id_jeu=:id_jeu";
+
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Jeu');
+
+        $arrayName = array("id_jeu" => $idJeu);
+
+        try {
+            $tab = $reponse->fetchAll();
+            return $tab;
+        } catch (PDOException $e) {
+        echo "erreur: " . $e->getMessage() . "</br>";
+        }
+    }
+
+    
 
     public static function GetTousLesjeux()
     {

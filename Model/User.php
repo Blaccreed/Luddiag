@@ -38,6 +38,56 @@ class User
         return $this->id_user;
     }
 
+    public static function SeConnecter($mail_user, $mdp_user)
+    {
+        $requetePreparee =
+            'SELECT * FROM user_flip WHERE mail_user = :tag_mail_user AND mdp_user = :tag_mdp_user';
+
+        $req_prep = Connexion::pdo()->prepare($requetePreparee);
+
+        $arrayName = [
+            'tag_mail_user' => $mail_user,
+            'tag_mdp_user' => $mdp_user,
+        ];
+
+        try {
+            $req_prep->execute($arrayName);
+            $reponse = $req_prep->rowCount();
+            if ($reponse == 1) {
+                $req_prep->setFetchMode(PDO::FETCH_CLASS, 'User');
+                $user = $req_prep->fetch();
+                return $user->id_user;
+                //On return l'id ce qui nous permettra de savoir si il s'agit de quel type d'utilisateur il s'agit
+
+            } else {
+                //On retourne null pour montrer que aucun utilisateur n'as ete trouver
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo 'erreur: ' . $e->getMessage() . '</br>';
+        }
+    }
+
+    public static function TestRole($idUser, $role)
+    {
+        $sql = "select Count(*) as nb from $role where id_user = :idUser";
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = [
+            'idUser' => $idUser,
+        ];
+        try {
+            $req_prep->execute($arrayName);
+            $reponse = $req_prep->fetch();
+            if ($reponse['nb'] == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo 'erreur: ' . $e->getMessage() . '</br>';
+        }
+    }
+
     /*
 
     inutile ???
@@ -118,55 +168,7 @@ class User
     }
      */
 
-    public static function SeConnecter($mail_user, $mdp_user)
-    {
-        $requetePreparee =
-            'SELECT * FROM user_flip WHERE mail_user = :tag_mail_user AND mdp_user = :tag_mdp_user';
-
-        $req_prep = Connexion::pdo()->prepare($requetePreparee);
-
-        $arrayName = [
-            'tag_mail_user' => $mail_user,
-            'tag_mdp_user' => $mdp_user,
-        ];
-
-        try {
-            $req_prep->execute($arrayName);
-            $reponse = $req_prep->rowCount();
-            if ($reponse == 1) {
-                $req_prep->setFetchMode(PDO::FETCH_CLASS, 'User');
-                $user = $req_prep->fetch();
-                return $user->id_user;
-                //On return l'id ce qui nous permettra de savoir si il s'agit de quel type d'utilisateur il s'agit
-
-            } else {
-                //On retourne null pour montrer que aucun utilisateur n'as ete trouver
-                return null;
-            }
-        } catch (PDOException $e) {
-            echo 'erreur: ' . $e->getMessage() . '</br>';
-        }
-    }
-
-    public static function TestRole($idUser, $role)
-    {
-        $sql = "select Count(*) as nb from $role where id_user = :idUser";
-        $req_prep = Connexion::pdo()->prepare($sql);
-        $arrayName = [
-            'idUser' => $idUser,
-        ];
-        try {
-            $req_prep->execute($arrayName);
-            $reponse = $req_prep->fetch();
-            if ($reponse['nb'] == 1) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (PDOException $e) {
-            echo 'erreur: ' . $e->getMessage() . '</br>';
-        }
-    }
+    
 
     /*
 inutile ???

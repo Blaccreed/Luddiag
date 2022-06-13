@@ -16,7 +16,18 @@ switch ($uc) {
             break;
         }
         if ($_SESSION['role'] == 'Exposant') {
+            
+            
+            require_once './Config/Connection.php';
+            
+            
+            //On recupere le jeux de l'exposant
+            
+
+
+
             require_once './View/Home/accueil_exposant.view.php';
+            
             break;
         }
         if ($_SESSION['role'] == 'Organisateur') {
