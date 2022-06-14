@@ -60,7 +60,6 @@ class Jeu
             $req_prep->execute($arrayName);
             $reponse = $req_prep->rowCount();
             if ($reponse == 1) {
-                $req_prep->setFetchMode(PDO::FETCH_CLASS, 'User');
                 $user = $req_prep->fetch();
                 $id_jeu = $user['id_jeu'];
 
