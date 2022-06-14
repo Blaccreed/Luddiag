@@ -33,7 +33,7 @@
 <div class="mt-5 grid items-center justify-center w-screen">
     <form method="POST" action="./View/Organisateur/Form/creation_compte_request.php" class="bg-green-50 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[35rem]" id="form-ajout">
         <h2 class="font-medium leading-tight text-4xl mt-0 mb-5 text-green-600 grid items-center justify-center">
-            Creer un compte
+            Créer un compte
         </h2>
         <div class="my-2 grid items-center justify-center">
             <label class="grid items-center justify-center itemsblock text-gray-700 text-sm font-bold mb-2">

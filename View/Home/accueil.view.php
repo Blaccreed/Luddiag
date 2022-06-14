@@ -27,7 +27,7 @@
                     <a href="index.php?uc=connection" class="text-gray-600 bg-green-500 hover:bg-green-600 hover:text-white text-lg px-9 py-1 rounded-md text-sm font-medium">Connectez-vous</a>
                 </button>
                 </dt>
-                <dd class="mx-auto text-base text-gray-500">Et acceder a toute les fonctionnaliter.</dd>
+                <dd class="mx-auto text-base text-gray-500">Et accéder à toutes les fonctionnalités.</dd>
               </div>
         </div>
       </div>

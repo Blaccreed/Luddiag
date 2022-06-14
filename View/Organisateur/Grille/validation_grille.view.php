@@ -24,18 +24,25 @@
                 unset($_SESSION['error']);
             }
         ?>
-        <div class="flex flex-row w-full h-2/3 items-center justify-evenly">
-            <div class="flex flex-col justify-evenly items-center mt-20 border-2 border-blue-300 bg-blue-200 w-1/3 h-1/3 px-8">
-                <label class="text-xl underline font-semibold">Selectionner le numero de la grille utilisateur</label>
-                <input id="grille-input" placeholder="Identifiant" type="text" class="bg-zinc-600 border-2 border-white pl-2 w-full" name="grille"/>
+        <div class="flex flex-col w-full h-2/3 items-center">
+            <div class="flex flex-col justify-evenly items-center mt-10 bg-green-50 shadow-md rounded w-1/3 h-1/3 px-8">
+                <label class="text-xl underline font-semibold">Sélectionner le numéro de la grille utilisateur</label>
+                <input 
+                    name="grille" 
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline  invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" 
+                    id="grille-input" 
+                    type="text" 
+                    placeholder="Numéro de grille">
                 <?php
-                echo "<button onclick='getGrille($id)' id='button-validation' class='border-white bg-blue-300 border-2 hover:bg-blue-400 hover:text-zinc-600 w-32 h-10 rounded-lg'>Valider</button>";
+                echo "<button onclick='getGrille($id)' id='button-validation' class='border-white bg-green-500 hover:bg-green-600 border-2 hover:text-white w-32 h-10 rounded-lg'>Valider</button>";
                 ?>
             </div>
-        </div>
-        <div id="grille-container" class="w-full">
+            <div id="grille-container" class="w-full flex flex-row justify-center mt-5">
 
+            </div>
         </div>
+        
     </div>
 </body>
 </html>
