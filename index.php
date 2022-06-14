@@ -2,6 +2,10 @@
 
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 if (!isset($_GET["uc"])) {
     $uc = "accueil";
@@ -16,9 +20,12 @@ switch ($uc) {
             break;
         }
         if ($_SESSION['role'] == 'Exposant') {
+
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
             
-            
-        require_once './Config/Connection.php';
+            require_once './Config/Connection.php';
             //On recupere le jeux de l'exposant
             require_once './Model/Jeu.php';
             $list = Jeu::GetJeuExposant($_SESSION['id_user']);
