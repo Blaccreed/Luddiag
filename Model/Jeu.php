@@ -48,15 +48,28 @@ class Jeu
 
     public static function GetJeuExposant($idExposant){
         
+        Connexion::connect();
         //On va dans un premier temps re
-        $sql = "SELECT id_jeu FROM Exposant WHERE id_user=$idExposant";
+        $sql = "SELECT id_jeu FROM Exposant WHERE id_user=:idExposant";
         
-        $reponse = Connexion::pdo()->prepare($sql);
-        $reponse->execute();
+        $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = [
+            'idExposant' => $idExposant,
+        ];
+        try {
+            $req_prep->execute($arrayName);
+            $reponse = $req_prep->rowCount();
+            if ($reponse == 1) {
+                $req_prep->setFetchMode(PDO::FETCH_CLASS, 'User');
+                $user = $req_prep->fetch();
+                $id_jeu = $user['id_jeu'];
 
-        $tab = $reponse->fetch();
-
-        $idJeu = $tab['id_jeu'];
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo 'erreur: ' . $e->getMessage() . '</br>';
+        }
 
         $sql = "SELECT 
                     jeu.id_jeu,
@@ -68,23 +81,20 @@ class Jeu
                 FROM jeu 
                     inner join noter 
                     on jeu.id_jeu = noter.id_jeu
-                    group by jeu.id_jeu
-                WHERE id_jeu=:id_jeu";
+                WHERE jeu.id_jeu= :id_jeu
+                group by jeu.id_jeu;";
 
         $req_prep = Connexion::pdo()->prepare($sql);
+        $arrayName = array("id_jeu" => $id_jeu);
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Jeu');
-
-        $arrayName = array("id_jeu" => $idJeu);
-
         try {
-            $tab = $reponse->fetchAll();
+            $req_prep->execute($arrayName);
+            $tab = $req_prep->fetch();
             return $tab;
         } catch (PDOException $e) {
         echo "erreur: " . $e->getMessage() . "</br>";
         }
     }
-
-    
 
     public static function GetTousLesjeux()
     {

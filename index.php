@@ -18,14 +18,16 @@ switch ($uc) {
         if ($_SESSION['role'] == 'Exposant') {
             
             
-            require_once './Config/Connection.php';
-            
-            
+        require_once './Config/Connection.php';
             //On recupere le jeux de l'exposant
+            require_once './Model/Jeu.php';
+            $list = Jeu::GetJeuExposant($_SESSION['id_user']);
+
+            $nom = $list->getNomJeu();
+            $image = $list->image;
+            $nbVotant = $list->GetNbVotant();
+            $noteMoyenne = $list->GetNoteMoyenne();
             
-
-
-
             require_once './View/Home/accueil_exposant.view.php';
             
             break;

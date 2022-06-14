@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav id="nav" class="h-16 bg-zinc-800 text-white flex flex-row w-screen">
     <div class="w-3/4 flex flex-row ml-8">
-        <div class="flex flex-col h-16 w-20 hover:bg-zinc-700">
+        <div class="flex flex-col h-16 w-40 hover:bg-zinc-700">
             <div class="h-[80%] flex flex-row justify-center items-center">
                 <a href="index.php">
                     Consulter ses notes
